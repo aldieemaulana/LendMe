@@ -14,7 +14,6 @@ class SplashActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initData()
         setContentView(R.layout.activity_splash)
         handler(500)
     }
