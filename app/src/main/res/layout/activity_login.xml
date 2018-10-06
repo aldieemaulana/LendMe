@@ -41,12 +41,6 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical">
 
-                    <com.hbb20.CountryCodePicker
-                        android:id="@+id/ccp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:ccp_defaultNameCode="my" />
-
                     <EditText
                         android:id="@+id/phoneText"
                         android:layout_width="match_parent"

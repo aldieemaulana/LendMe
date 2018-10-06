@@ -1,44 +1,19 @@
 package com.jomhack.lendme.activity;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.app.LoaderManager.LoaderCallbacks;
-
-import android.content.CursorLoader;
-import android.content.Loader;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.AsyncTask;
-
-import android.os.Build;
-import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -50,14 +25,13 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
-import com.hbb20.CountryCodePicker;
 import com.jomhack.lendme.R;
 import com.jomhack.lendme.utils.AppUtils;
 
+import java.util.concurrent.TimeUnit;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static android.Manifest.permission.READ_CONTACTS;
 
 /** A login screen that offers login via email/password. */
 public class LoginActivity extends AppCompatActivity {
@@ -83,7 +57,6 @@ public class LoginActivity extends AppCompatActivity {
   private PhoneAuthProvider.ForceResendingToken resendToken;
 
   private FirebaseAuth fbAuth;
-  CountryCodePicker ccp;
   private Context context;
   private ProgressDialog progress;
 
@@ -101,9 +74,6 @@ public class LoginActivity extends AppCompatActivity {
     resendButton = (Button) findViewById(R.id.resendButton);
     signoutButton = (Button) findViewById(R.id.signoutButton);
     statusText = (TextView) findViewById(R.id.statusText);
-
-    ccp = (CountryCodePicker) findViewById(R.id.ccp);
-    ccp.registerCarrierNumberEditText(phoneText);
 
     verifyButton.setEnabled(false);
     resendButton.setEnabled(false);
@@ -196,7 +166,6 @@ public class LoginActivity extends AppCompatActivity {
   public void sendCode() {
 
     progress.show();
-    number = ccp.getFullNumberWithPlus();
 
     setUpVerificatonCallbacks();
 
@@ -297,7 +266,6 @@ public class LoginActivity extends AppCompatActivity {
 
   public void resendCode() {
     progress.show();
-    number = ccp.getFullNumberWithPlus();
 
     setUpVerificatonCallbacks();
 
