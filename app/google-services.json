@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "182382299109",
+    "firebase_url": "https://jomhack-bcde1.firebaseio.com",
+    "project_id": "jomhack-bcde1",
+    "storage_bucket": "jomhack-bcde1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182382299109:android:29c083eafe3d98bf",
+        "android_client_info": {
+          "package_name": "com.jomhack.lendme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "182382299109-ugfo35a3v84ql3drfq5e34f40j3pidi4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jomhack.lendme",
+            "certificate_hash": "790873dc559051477f8f486160fddeff2cf040bd"
+          }
+        },
+        {
+          "client_id": "182382299109-5on2truel1li1drev1lv2fgst2jnp4bh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6VUDlN2zO0WUnte-VjUaubmRjRBXwiPA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "182382299109-5on2truel1li1drev1lv2fgst2jnp4bh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
