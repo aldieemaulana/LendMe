@@ -1,10 +1,10 @@
 package com.jomhack.lendme.activity
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.jomhack.lendme.R
+import com.jomhack.lendme.base.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
