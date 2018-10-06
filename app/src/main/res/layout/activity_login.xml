@@ -93,7 +93,7 @@
 
 
             <com.jomhack.lendme.components.JomTextView
-                app:Amfont="L"
+                app:JomFont="L"
                 android:layout_marginTop="@dimen/component_small"
                 android:layout_marginBottom="@dimen/component_small"
                 android:id="@+id/textError"
