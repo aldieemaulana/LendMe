@@ -1,7 +1,8 @@
-package com.jomhack.lendme
+package com.jomhack.lendme.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.jomhack.lendme.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -9,4 +10,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+
 }
