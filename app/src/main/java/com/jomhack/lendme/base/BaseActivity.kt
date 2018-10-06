@@ -8,6 +8,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import com.jomhack.lendme.utils.Dialogs
 import com.kaopiz.kprogresshud.KProgressHUD
+import kotlinx.android.synthetic.main.toolbar_primary.*
 
 
 /**
@@ -36,16 +37,22 @@ open class BaseActivity : AppCompatActivity() {
         return super.dispatchTouchEvent(event)
     }
 
-    fun showProgress() {
+    internal fun showProgress() {
         progress!!.show()
     }
 
-    fun hideProgress() {
+    internal fun hideProgress() {
         progress!!.dismiss()
     }
 
-    fun initData() {
+    internal fun initData() {
         progress = Dialogs().initProgressDialog(context)
     }
+
+    internal fun setTitle(title: String) {
+        textTitleToolbar.text = title
+    }
+
+
 
 }
