@@ -214,10 +214,10 @@ public class LoginActivity extends BaseActivity {
                 Companion.hideProgress();
                 if (e instanceof FirebaseAuthInvalidCredentialsException) {
                   // Invalid request
-                  Log.d(TAG, "Invalid credential: " + e.getLocalizedMessage());
+                  Utils.Companion.showSnackBar("Invalid credential: " + e.getLocalizedMessage(), cordinate_main);
                 } else if (e instanceof FirebaseTooManyRequestsException) {
                   // SMS quota exceeded
-                  Log.d(TAG, "SMS Quota exceeded.");
+                Utils.Companion.showSnackBar("SMS Quota exceeded.", cordinate_main);
                 }
               }
 
@@ -273,7 +273,7 @@ public class LoginActivity extends BaseActivity {
                         } else {
                             Companion.hideProgress();
                           if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                            // The verification code entered was invalid
+                              Utils.Companion.showSnackBar(" The verification code entered was invalid", cordinate_main);
                           }
                         }
                       }
