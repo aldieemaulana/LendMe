@@ -49,6 +49,7 @@ public class LoginActivity extends BaseActivity {
   private Button resendButton;
   private Button signoutButton;
   private TextView statusText;
+  private TextView textError;
 
   @BindView(R.id.parentLayout)
   CoordinatorLayout cordinate_main;
@@ -76,6 +77,7 @@ public class LoginActivity extends BaseActivity {
     resendButton = findViewById(R.id.resendButton);
     signoutButton = findViewById(R.id.signoutButton);
     statusText = findViewById(R.id.statusText);
+      textError = findViewById(R.id.textError);
 
     ccp = findViewById(R.id.ccp);
     ccp.registerCarrierNumberEditText(phoneText);
@@ -137,7 +139,7 @@ public class LoginActivity extends BaseActivity {
                     return;
                   }
                   verifyCode();
-                } else Utils.Companion.showSnackBar(getString(R.string.text_check_internet), cordinate_main);
+                } else setError(getString(R.string.text_check_internet));
               }
             });
 
@@ -152,7 +154,7 @@ public class LoginActivity extends BaseActivity {
                     return;
                   }
                   sendCode();
-                } else Utils.Companion.showSnackBar(getString(R.string.text_check_internet), cordinate_main);
+                } else setError(getString(R.string.text_check_internet));
               }
             });
 
@@ -167,7 +169,7 @@ public class LoginActivity extends BaseActivity {
                     return;
                   }
                   resendCode();
-                } else Utils.Companion.showSnackBar(getString(R.string.text_check_internet), cordinate_main);
+                } else setError(getString(R.string.text_check_internet));
               }
             });
 
@@ -177,7 +179,7 @@ public class LoginActivity extends BaseActivity {
               public void onClick(View view) {
                 Utils.Companion.hideKeyboard((Activity) context);
                 if (Utils.Companion.isOnline(context)) signOut();
-                else Utils.Companion.showSnackBar(getString(R.string.text_check_internet), cordinate_main);
+                else setError(getString(R.string.text_check_internet));
               }
             });
   }
@@ -214,10 +216,10 @@ public class LoginActivity extends BaseActivity {
                 Companion.hideProgress();
                 if (e instanceof FirebaseAuthInvalidCredentialsException) {
                   // Invalid request
-                  Utils.Companion.showSnackBar("Invalid credential: " + e.getLocalizedMessage(), cordinate_main);
+                  setError("Invalid credential: " + e.getLocalizedMessage());
                 } else if (e instanceof FirebaseTooManyRequestsException) {
                   // SMS quota exceeded
-                Utils.Companion.showSnackBar("SMS Quota exceeded.", cordinate_main);
+                setError("SMS Quota exceeded.");
                 }
               }
 
@@ -240,7 +242,11 @@ public class LoginActivity extends BaseActivity {
             };
   }
 
-  public void verifyCode() {
+    private void setError(String s) {
+      textError.setText(s);
+    }
+
+    public void verifyCode() {
     Companion.showProgress();
     String code = codeText.getText().toString();
 
@@ -273,7 +279,7 @@ public class LoginActivity extends BaseActivity {
                         } else {
                             Companion.hideProgress();
                           if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                              Utils.Companion.showSnackBar(" The verification code entered was invalid", cordinate_main);
+                              setError(" The verification code entered was invalid");
                           }
                         }
                       }
