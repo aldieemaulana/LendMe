@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="colorAccent">#222833</color>
+    <color name="grey_100">#F5F5F5</color>
+    <color name="grey_300">#E0E0E0</color>
+    <color name="grey_500">#9E9E9E</color>
     <color name="colorPrimary">#2962ff</color>
     <color name="colorPrimaryDark">#1a4ddb</color>
     <color name="colorPrimaryDarkTransparent">#c0202227</color>
     <color name="colorLabel">#2e79f4</color>
     <color name="colorLabelTransparent">#e9f3ff</color>
     <color name="colorLabelActive">#01579b</color>
-    <color name="colorAccent">#222833</color>
+
     <color name="colorAccentActive">#202227</color>
     <color name="colorWhite">#FFFFFFFF</color>
     <color name="colorWhiteAccent">#f5f5f5</color>
