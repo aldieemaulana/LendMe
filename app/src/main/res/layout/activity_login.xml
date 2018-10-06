@@ -33,16 +33,33 @@
                 android:layout_height="wrap_content"
                 android:text="@string/text_phone_number" />
 
-            <com.jomhack.lendme.components.JomEditText
-                style="@style/AppTheme.TextInput"
-                app:JomFont="R"
-                android:id="@+id/phoneText"
-                android:hint="@string/text_hint_mobile_number"
-                android:layout_height="wrap_content"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:maxLength="11"
-                android:inputType="phone"
-                android:singleLine="true"/>
+                android:layout_height="wrap_content">
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:background="@color/colorTransparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    app:ccp_defaultNameCode="my" />
+
+                <com.jomhack.lendme.components.JomEditText
+                    android:layout_toRightOf="@id/ccp"
+                    style="@style/AppTheme.TextInput"
+                    app:JomFont="R"
+                    android:id="@+id/phoneText"
+                    android:hint="@string/text_hint_mobile_number"
+                    android:layout_marginTop="7dp"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:maxLength="11"
+                    android:inputType="phone"
+                    android:singleLine="true"/>
+
+            </RelativeLayout>
+
+
         </LinearLayout>
 
         <com.jomhack.lendme.components.JomButton
@@ -58,63 +75,62 @@
             android:textColor="@color/colorWhite"
             tools:targetApi="lollipop" />
 
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Signed Out"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/resendButton"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="29dp"
+                android:background="@color/colorPrimary"
+                android:text="Resend Code"
+                android:textColor="#FFF" />
+
+            <EditText
+                android:id="@+id/codeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/resendButton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="47dp"
+                android:ems="10"
+                android:hint="Code"
+                android:inputType="number"
+                android:textColor="#000"
+                android:textColorHint="#000" />
+
+            <Button
+                android:id="@+id/verifyButton"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/codeText"
+                android:layout_alignStart="@+id/codeText"
+                android:layout_alignLeft="@+id/codeText"
+                android:layout_alignEnd="@+id/codeText"
+                android:layout_alignRight="@+id/codeText"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorPrimary"
+                android:text="Verify Code"
+                android:textColor="#FFF" />
+
+            <Button
+                android:id="@+id/signoutButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/verifyButton"
+                android:text="Sign Out"
+                android:visibility="gone" />
+        </RelativeLayout>
     </LinearLayout>
-
-    <RelativeLayout
-        android:visibility="gone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/statusText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Signed Out"
-            android:visibility="gone" />
-
-        <Button
-            android:id="@+id/resendButton"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="29dp"
-            android:background="@color/colorPrimary"
-            android:text="Resend Code"
-            android:textColor="#FFF" />
-
-        <EditText
-            android:id="@+id/codeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/resendButton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="47dp"
-            android:ems="10"
-            android:hint="Code"
-            android:inputType="number"
-            android:textColor="#000"
-            android:textColorHint="#000" />
-
-        <Button
-            android:id="@+id/verifyButton"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/codeText"
-            android:layout_alignStart="@+id/codeText"
-            android:layout_alignLeft="@+id/codeText"
-            android:layout_alignEnd="@+id/codeText"
-            android:layout_alignRight="@+id/codeText"
-            android:layout_marginTop="20dp"
-            android:background="@color/colorPrimary"
-            android:text="Verify Code"
-            android:textColor="#FFF" />
-
-        <Button
-            android:id="@+id/signoutButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/verifyButton"
-            android:text="Sign Out"
-            android:visibility="gone" />
-    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
