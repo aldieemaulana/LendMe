@@ -11,7 +11,7 @@
     <color name="colorAccentActive">#FFEAB90F</color>
     <color name="colorWhite">#FFFFFFFF</color>
     <color name="colorWhiteAccent">#f5f5f5</color>
-    <color name="colorBackgroundPrimary">#efefef</color>
+    <color name="colorBackgroundPrimary">#f3f3f3</color>
     <color name="colorBackgroundSecondary">#FFDADADA</color>
     <color name="colorTextPrimary">#FF101010</color>
     <color name="colorTextPrimaryLight">#8e8e8e</color>
