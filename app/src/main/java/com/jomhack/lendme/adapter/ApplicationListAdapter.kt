@@ -1,7 +1,10 @@
 package com.jomhack.lendme.adapter
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.content.Intent
 import android.os.Build
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.AppCompatTextView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,6 +12,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.jomhack.lendme.R
+import com.jomhack.lendme.activity.DetailLoanActivity
+import com.jomhack.lendme.activity.MainActivity
 import com.jomhack.lendme.model.Audit
 import kotlinx.android.synthetic.main.item_list_history.view.*
 import java.text.SimpleDateFormat
@@ -18,7 +23,7 @@ import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.*
 
-class ApplicationListAdapter(private var audits: List<Audit?>) : RecyclerView.Adapter<ApplicationListAdapter.ViewHolder>() {
+class ApplicationListAdapter(private var audits: List<Audit?>, private var context: Context) : RecyclerView.Adapter<ApplicationListAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return audits.size
@@ -49,6 +54,12 @@ class ApplicationListAdapter(private var audits: List<Audit?>) : RecyclerView.Ad
         holder.textAccount.text = "${audit?.pointOfInterest.toString()}% for ${audit?.numberOfMonth} month (s)"
         holder.textAmount.isEnabled = audit?.bankinType.equals("RENT")
         holder.textAmount.text = (if(audit?.bankinType.equals("RENT")) "- " else "+ ") + "MYR ${audit?.amount.toString()}"
+
+        holder.layoutParent.setOnClickListener {
+            val intent = Intent(context, DetailLoanActivity::class.java)
+            intent.putExtra("audit", audit)
+            context.startActivity(intent)
+        }
 
     }
 

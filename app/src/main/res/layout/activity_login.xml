@@ -78,7 +78,6 @@
                     android:text="@string/text_tac" />
 
                 <com.jomhack.lendme.components.JomEditText
-                    android:layout_toRightOf="@id/ccp"
                     style="@style/AppTheme.TextInput"
                     app:JomFont="R"
                     android:id="@+id/codeText"

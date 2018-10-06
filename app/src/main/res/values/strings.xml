@@ -50,4 +50,12 @@
     <string name="dummy_name">Aldi Maulana</string>
     <string name="text_transaction_history">Transaction History</string>
     <string name="text_approved">Approved</string>
+    <string name="text_name">Name</string>
+    <string name="text_hint_name">John Doe</string>
+    <string name="text_amount">Amount to Loan (MYR)</string>
+    <string name="text_hint_amount">MYR xxx</string>
+    <string name="text_hint_tenure">x Month (s)</string>
+    <string name="text_tenure">Tenure</string>
+    <string name="text_hint_interest">10</string>
+    <string name="text_interest">Interest (%)</string>
 </resources>

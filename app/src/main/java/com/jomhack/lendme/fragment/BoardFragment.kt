@@ -45,7 +45,7 @@ class BoardFragment : Fragment() {
         recyclerViewFriend.layoutManager = LinearLayoutManager(context, LinearLayout.HORIZONTAL, false)
         recyclerViewFriend.adapter = adapterFriend
 
-        adapterApplication = ApplicationListAdapter(applications)
+        adapterApplication = ApplicationListAdapter(applications, context!!)
 
         recyclerViewApplication.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
         recyclerViewApplication.adapter = adapterApplication

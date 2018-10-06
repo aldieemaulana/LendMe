@@ -37,7 +37,7 @@ class InvestsFragment : Fragment() {
     }
 
     private fun initList(applications: List<Audit>) {
-        adapterApplication = ApplicationListAdapter(applications)
+        adapterApplication = ApplicationListAdapter(applications, context!!)
 
         recyclerViewApplication.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
         recyclerViewApplication.adapter = adapterApplication
