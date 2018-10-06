@@ -63,9 +63,11 @@ class JomTextView : AppCompatTextView {
             mEdit = (parent as View).findViewById(mEditRes)!!
 
             setOnClickListener{
-                mEdit.requestFocus()
 
-                Utils().showKeyboard(context)
+                if(mEdit.isEnabled) {
+                    mEdit.requestFocus()
+                    Utils().showKeyboard(context)
+                }
             }
 
         }

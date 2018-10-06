@@ -1,22 +1,19 @@
 package com.jomhack.lendme.activity;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.app.AppCompatActivity;
-
-import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import java.util.concurrent.TimeUnit;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,14 +28,16 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import com.hbb20.CountryCodePicker;
 import com.jomhack.lendme.App;
 import com.jomhack.lendme.R;
+import com.jomhack.lendme.base.BaseActivity;
 import com.jomhack.lendme.utils.Utils;
-import com.jomhack.lendme.utils.Utils.Companion;
+
+import java.util.concurrent.TimeUnit;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /** A login screen that offers login via email/password. */
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
   private static final String TAG = "PhoneAuth";
 
@@ -62,7 +61,6 @@ public class LoginActivity extends AppCompatActivity {
 
   CountryCodePicker ccp;
   private Context context;
-  private ProgressDialog progress;
   public FirebaseAuth fbAuth;
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -71,15 +69,15 @@ public class LoginActivity extends AppCompatActivity {
     ButterKnife.bind(this);
 
 
-    phoneText = (EditText) findViewById(R.id.phoneText);
-    codeText = (EditText) findViewById(R.id.codeText);
-    verifyButton = (Button) findViewById(R.id.verifyButton);
-    sendButton = (Button) findViewById(R.id.sendButton);
-    resendButton = (Button) findViewById(R.id.resendButton);
-    signoutButton = (Button) findViewById(R.id.signoutButton);
-    statusText = (TextView) findViewById(R.id.statusText);
+    phoneText = findViewById(R.id.phoneText);
+    codeText = findViewById(R.id.codeText);
+    verifyButton = findViewById(R.id.verifyButton);
+    sendButton = findViewById(R.id.sendButton);
+    resendButton = findViewById(R.id.resendButton);
+    signoutButton = findViewById(R.id.signoutButton);
+    statusText = findViewById(R.id.statusText);
 
-    ccp = (CountryCodePicker) findViewById(R.id.ccp);
+    ccp = findViewById(R.id.ccp);
     ccp.registerCarrierNumberEditText(phoneText);
 
     verifyButton.setEnabled(false);
@@ -87,21 +85,40 @@ public class LoginActivity extends AppCompatActivity {
     signoutButton.setEnabled(false);
     statusText.setText("Signed Out");
 
+    TextView title = findViewById(R.id.textTitleToolbar);
 
 
-    context = this;
+      context = this;
+      title.setText(context.getResources().getString(R.string.title_activity_login));
+      Companion.initData(context);
     fbAuth = App.Companion.getFirebaseAuth();
 
+    verifyButton.setVisibility(View.GONE);
+    codeText.setEnabled(false);
+    resendButton.setVisibility(View.GONE);
 
+    phoneText.addTextChangedListener(new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-    progress = new ProgressDialog(this);
-    progress.setMessage("Please wait...");
-    progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-    progress.setIndeterminate(true);
-    progress.setProgress(0);
-    verifyButton.setVisibility(View.INVISIBLE);
-    codeText.setVisibility(View.INVISIBLE);
-    resendButton.setVisibility(View.INVISIBLE);
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            if(s.toString().length() <= 2) {
+                sendButton.setVisibility(View.VISIBLE);
+                sendButton.setEnabled(true);
+                verifyButton.setVisibility(View.GONE);
+                codeText.setEnabled(false);
+                resendButton.setVisibility(View.GONE);
+            }
+        }
+    });
 
 
     setListener();
@@ -167,7 +184,7 @@ public class LoginActivity extends AppCompatActivity {
 
   public void sendCode() {
 
-    progress.show();
+    Companion.showProgress();
     number = ccp.getFullNumberWithPlus();
 
     setUpVerificatonCallbacks();
@@ -188,18 +205,13 @@ public class LoginActivity extends AppCompatActivity {
 
               @Override
               public void onVerificationCompleted(PhoneAuthCredential credential) {
-                progress.dismiss();
-                signoutButton.setEnabled(true);
-                statusText.setText("Signed In");
-                resendButton.setEnabled(false);
-                verifyButton.setEnabled(false);
-                codeText.setText("");
+                Companion.hideProgress();
                 signInWithPhoneAuthCredential(credential);
               }
 
               @Override
               public void onVerificationFailed(FirebaseException e) {
-                progress.dismiss();
+                Companion.hideProgress();
                 if (e instanceof FirebaseAuthInvalidCredentialsException) {
                   // Invalid request
                   Log.d(TAG, "Invalid credential: " + e.getLocalizedMessage());
@@ -212,7 +224,7 @@ public class LoginActivity extends AppCompatActivity {
               @Override
               public void onCodeSent(
                       String verificationId, PhoneAuthProvider.ForceResendingToken token) {
-                progress.dismiss();
+                Companion.hideProgress();
                 phoneVerificationId = verificationId;
                 resendToken = token;
                 verifyButton.setEnabled(true);
@@ -220,15 +232,16 @@ public class LoginActivity extends AppCompatActivity {
                 resendButton.setEnabled(true);
 
                 verifyButton.setVisibility(View.VISIBLE);
-                codeText.setVisibility(View.VISIBLE);
+                codeText.setEnabled(true);
                 sendButton.setVisibility(View.GONE);
                 resendButton.setVisibility(View.VISIBLE);
+                codeText.requestFocus();
               }
             };
   }
 
   public void verifyCode() {
-    progress.show();
+    Companion.showProgress();
     String code = codeText.getText().toString();
 
     PhoneAuthCredential credential = PhoneAuthProvider.getCredential(phoneVerificationId, code);
@@ -236,6 +249,8 @@ public class LoginActivity extends AppCompatActivity {
   }
 
   private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+
+
     fbAuth
             .signInWithCredential(credential)
             .addOnCompleteListener(
@@ -243,13 +258,10 @@ public class LoginActivity extends AppCompatActivity {
                     new OnCompleteListener<AuthResult>() {
                       @Override
                       public void onComplete(@NonNull Task<AuthResult> task) {
-                        progress.dismiss();
+                          Companion.showProgress();
                         if (task.isSuccessful()) {
-                          signoutButton.setEnabled(true);
-                          codeText.setText("");
-                          statusText.setText("Signed In");
-                          resendButton.setEnabled(false);
-                          verifyButton.setEnabled(false);
+
+                            Companion.hideProgress();
                           FirebaseUser user = task.getResult().getUser();
                           String phoneNumber = user.getPhoneNumber();
 
@@ -259,6 +271,7 @@ public class LoginActivity extends AppCompatActivity {
                           finish();
 
                         } else {
+                            Companion.hideProgress();
                           if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                             // The verification code entered was invalid
                           }
@@ -268,7 +281,7 @@ public class LoginActivity extends AppCompatActivity {
   }
 
   public void resendCode() {
-    progress.show();
+    Companion.showProgress();
     number = ccp.getFullNumberWithPlus();
 
     setUpVerificatonCallbacks();
@@ -278,12 +291,12 @@ public class LoginActivity extends AppCompatActivity {
   }
 
   public void signOut() {
-    progress.show();
+    Companion.showProgress();
     fbAuth.signOut();
     statusText.setText("Signed Out");
     signoutButton.setEnabled(false);
     sendButton.setEnabled(true);
-    progress.dismiss();
+    Companion.hideProgress();
 
   }
 }
