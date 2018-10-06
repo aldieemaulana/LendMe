@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/appBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/AppTheme.NoActionBar"
+    android:stateListAnimator="@animator/appbar_elevation"
+    app:liftOnScroll="true"
+    tools:targetApi="lollipop">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/toolbar"
+        style="@style/AppTheme.Toolbar"
+        android:background="@color/colorWhite"
+        app:elevation="100dp"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:weightSum="1"
+        tools:ignore="RtlSymmetry">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.jomhack.lendme.components.JomTextView
+                app:JomFont="M"
+                android:id="@+id/textTitleToolbar"
+                android:layout_centerVertical="true"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:text="Title"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/component_extra"
+                android:layout_marginStart="@dimen/component_extra"
+                android:layout_marginRight="@dimen/component_extra"
+                android:layout_marginEnd="@dimen/component_extra"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_navbar_title"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+</android.support.design.widget.AppBarLayout>
