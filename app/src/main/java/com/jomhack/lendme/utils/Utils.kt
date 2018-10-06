@@ -18,31 +18,34 @@ open class Utils {
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
     }
 
-    fun showSnackBar(result: String, rootLayout: View) {
-        val snackBar = Snackbar.make(rootLayout, result, Snackbar.LENGTH_LONG)
+    companion object {
 
-        snackBar.setAction(
-                "Dismiss"
-        ) { snackBar.dismiss() }
-        snackBar.show()
-    }
+        fun showSnackBar(result: String, rootLayout: View) {
+            val snackBar = Snackbar.make(rootLayout, result, Snackbar.LENGTH_LONG)
 
-    fun isOnline(context: Context): Boolean {
-        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val netInfo = cm.activeNetworkInfo
-        if (netInfo != null && netInfo.isConnectedOrConnecting) {
-            return true
-        } else {
-
+            snackBar.setAction(
+                    "Dismiss"
+            ) { snackBar.dismiss() }
+            snackBar.show()
         }
-        return false
-    }
 
-    open fun hideKeyboard(activity: Activity) {
-        val inputMethodManager = activity.getSystemService(
-                Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(
-                activity.currentFocus!!.windowToken, 0)
+        fun isOnline(context: Context): Boolean {
+            val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val netInfo = cm.activeNetworkInfo
+            if (netInfo != null && netInfo.isConnectedOrConnecting) {
+                return true
+            } else {
+
+            }
+            return false
+        }
+
+        fun hideKeyboard(activity: Activity) {
+            val inputMethodManager = activity.getSystemService(
+                    Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.hideSoftInputFromWindow(
+                    activity.currentFocus!!.windowToken, 0)
+        }
     }
 
 }

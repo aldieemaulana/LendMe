@@ -42,4 +42,5 @@
     <string name="text_lend_money_to">Lend Money To</string>
     <string name="text_phone_number">Phone Number</string>
     <string name="text_hint_mobile_number">01xxx</string>
+    <string name="text_send_code">Send Code</string>
 </resources>

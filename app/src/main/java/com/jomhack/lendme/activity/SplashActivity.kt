@@ -32,13 +32,9 @@ class SplashActivity : BaseActivity() {
 
     private fun checkLogin() {
 
-        /*if(isLogin)
-            startActivity(Intent(context, MainActivity::class.java))
-        else
-            startActivity(Intent(context, MainActivity::class.java))*/
         val fbAuth = App.getFirebaseAuth();
 
-        if (fbAuth != null && fbAuth.currentUser != null && fbAuth.currentUser!!.phoneNumber != null) {
+        if (fbAuth.currentUser != null && fbAuth.currentUser!!.phoneNumber != null) {
             val intent = Intent(this@SplashActivity, MainActivity::class.java)
             intent.putExtra("phone", fbAuth.currentUser!!.phoneNumber)
             startActivity(intent);

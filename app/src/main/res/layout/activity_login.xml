@@ -27,7 +27,7 @@
             android:layout_marginBottom="@dimen/component_big">
             <com.jomhack.lendme.components.JomTextView
                 style="@style/AppTheme.TextLabelInput"
-                app:JomEdit="@id/textMobile"
+                app:JomEdit="@id/phoneText"
                 app:JomFont="M"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             <com.jomhack.lendme.components.JomEditText
                 style="@style/AppTheme.TextInput"
                 app:JomFont="R"
-                android:id="@+id/textMobile"
+                android:id="@+id/phoneText"
                 android:hint="@string/text_hint_mobile_number"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
@@ -44,6 +44,19 @@
                 android:inputType="phone"
                 android:singleLine="true"/>
         </LinearLayout>
+
+        <com.jomhack.lendme.components.JomButton
+            app:JomFont="M"
+            android:id="@+id/sendButton"
+            android:stateListAnimator="@null"
+            android:layout_marginTop="@dimen/component_extra"
+            android:layout_marginBottom="@dimen/component_extra"
+            style="@style/AppTheme.ButtonInput.Flat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_send_code"
+            android:textColor="@color/colorWhite"
+            tools:targetApi="lollipop" />
 
     </LinearLayout>
 
@@ -59,64 +72,10 @@
             android:text="Signed Out"
             android:visibility="gone" />
 
-        <RelativeLayout
-            android:id="@+id/phoneAuth"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="16dp"
-            android:padding="8dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Phone number"
-                    android:textSize="18sp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical">
-
-                    <com.hbb20.CountryCodePicker
-                        android:id="@+id/ccp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:ccp_defaultNameCode="my" />
-
-                    <EditText
-                        android:id="@+id/phoneText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="phone"
-                        android:inputType="phone"
-                        android:singleLine="true" />
-                </LinearLayout>
-            </LinearLayout>
-        </RelativeLayout>
-
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/phoneAuth"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
-            android:background="@color/colorPrimary"
-            android:text="Send Code"
-            android:textColor="#FFF" />
-
         <Button
             android:id="@+id/resendButton"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/sendButton"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="29dp"
             android:background="@color/colorPrimary"
