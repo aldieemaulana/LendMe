@@ -41,9 +41,6 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"
             android:label="@string/title_activity_main" />
-        <activity
-            android:name=".activity.MessagingActivity"
-            android:label="@string/title_activity_main" />
 
 
     </application>
