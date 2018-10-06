@@ -3,6 +3,8 @@ package com.jomhack.lendme.activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import com.google.firebase.auth.FirebaseAuth
+import com.jomhack.lendme.App
 import com.jomhack.lendme.R
 import com.jomhack.lendme.base.BaseActivity
 
@@ -16,6 +18,7 @@ class SplashActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         handler(500)
+
     }
 
     private fun handler(duration: Long) {
@@ -33,9 +36,16 @@ class SplashActivity : BaseActivity() {
             startActivity(Intent(context, MainActivity::class.java))
         else
             startActivity(Intent(context, MainActivity::class.java))*/
+        val fbAuth = App.getFirebaseAuth();
 
-        startActivity(Intent(context, LoginActivity::class.java))
+        if (fbAuth != null && fbAuth.currentUser != null && fbAuth.currentUser!!.phoneNumber != null) {
+            val intent = Intent(this@SplashActivity, MainActivity::class.java)
+            intent.putExtra("phone", fbAuth.currentUser!!.phoneNumber)
+            startActivity(intent);
 
+        } else {
+            startActivity(Intent(context, LoginActivity::class.java))
+        }
         finish()
     }
 }

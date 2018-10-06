@@ -1,11 +1,14 @@
 package com.jomhack.lendme.activity
 
+import android.databinding.DataBindingUtil.setContentView
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
 import android.view.MenuItem
 import android.view.View
 import com.jomhack.lendme.R
+import com.jomhack.lendme.R.id.bottomNavigation
+import com.jomhack.lendme.R.id.buttonBackToolbar
 import com.jomhack.lendme.base.BaseActivity
 import com.jomhack.lendme.fragment.*
 import com.jomhack.lendme.utils.Constants
