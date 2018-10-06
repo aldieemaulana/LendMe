@@ -6,4 +6,6 @@
     <string name="title_invests">Invests</string>
     <string name="title_history">History</string>
     <string name="title_settings">Settings</string>
+    <string name="text_balance_amount_total">Balance Amount Total</string>
+    <string name="dummy_amount">MYR 10.000,00</string>
 </resources>

@@ -17,7 +17,7 @@ import com.jomhack.lendme.logger.JomHackLog
 class JomTextView : AppCompatTextView {
 
     private var mFont: String = "R"
-    private var mPath: String = "fonts/Ubuntu-"
+    private var mPath: String = "fonts/Montserrat-"
     private var mType: String = ".ttf"
     private var mEditRes: Int = 0
     private lateinit var mEdit: View
