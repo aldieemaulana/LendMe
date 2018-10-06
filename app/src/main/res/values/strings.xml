@@ -47,4 +47,7 @@
     <string name="text_hint_tac_code">xxxx</string>
     <string name="text_tac">TAC Code</string>
     <string name="text_verify_code">Verify Code</string>
+    <string name="dummy_name">Aldi Maulana</string>
+    <string name="text_transaction_history">Transaction History</string>
+    <string name="text_approved">Approved</string>
 </resources>
