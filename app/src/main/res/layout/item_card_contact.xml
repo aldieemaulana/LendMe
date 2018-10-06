@@ -23,7 +23,7 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/photo_al"
+            android:background="@color/colorTextHint"
             tools:src="@tools:sample/avatars"/>
 
         <com.jomhack.lendme.components.JomTextView

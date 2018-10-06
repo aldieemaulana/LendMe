@@ -11,6 +11,7 @@
     <item
         android:id="@+id/navigation_friends"
         android:icon="@drawable/ic_friends"
+        android:visible="false"
         android:iconTint="@color/colorBottomNavigationNormal"
         android:title="@string/title_frieds"/>
     <item

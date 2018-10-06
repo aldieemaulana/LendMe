@@ -26,6 +26,119 @@
             android:layout_height="wrap_content"
             style="@style/AppTheme.Layout.Parent"
             android:orientation="vertical">
+            <com.jomhack.lendme.components.JomTextView
+                app:JomFont="M"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                android:text="@string/text_detail_loan"
+                android:textColor="@color/colorTextPrimaryDark"
+                android:layout_marginBottom="@dimen/component_big"
+                android:textSize="@dimen/text_title_tiny"/>
+
+
+            <LinearLayout
+                android:background="@drawable/input_primary_flat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/component_big">
+                <com.jomhack.lendme.components.JomTextView
+                    style="@style/AppTheme.TextLabelInput"
+                    app:JomFont="M"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_mobile" />
+
+                <com.jomhack.lendme.components.JomTextView
+                    style="@style/AppTheme.TextInput"
+                    app:JomFont="R"
+                    android:id="@+id/textMobileNumber"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:background="@drawable/input_primary_flat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/component_big">
+                <com.jomhack.lendme.components.JomTextView
+                    style="@style/AppTheme.TextLabelInput"
+                    app:JomFont="M"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_amount" />
+
+                <com.jomhack.lendme.components.JomTextView
+                    style="@style/AppTheme.TextInput"
+                    app:JomFont="R"
+                    android:id="@+id/textAmount"
+                    android:hint="@string/text_hint_amount"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/input_primary_flat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/component_big">
+                <com.jomhack.lendme.components.JomTextView
+                    style="@style/AppTheme.TextLabelInput"
+                    app:JomFont="M"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_tenure" />
+
+                <com.jomhack.lendme.components.JomTextView
+                    style="@style/AppTheme.TextInput"
+                    app:JomFont="R"
+                    android:id="@+id/textTenure"
+                    android:hint="@string/text_hint_tenure"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/input_primary_flat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/component_big">
+                <com.jomhack.lendme.components.JomTextView
+                    style="@style/AppTheme.TextLabelInput"
+                    app:JomEdit="@id/textInterest"
+                    app:JomFont="M"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_interest" />
+
+                <com.jomhack.lendme.components.JomEditText
+                    style="@style/AppTheme.TextInput"
+                    app:JomFont="R"
+                    android:id="@+id/textInterest"
+                    android:hint="@string/text_hint_interest"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:maxLength="3"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"/>
+            </LinearLayout>
+
+            <com.jomhack.lendme.components.JomTextView
+                app:JomFont="M"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="true"
+                android:text="@string/text_detail_loaner"
+                android:textColor="@color/colorTextPrimaryDark"
+                android:layout_marginTop="@dimen/component_big"
+                android:layout_marginBottom="@dimen/component_big"
+                android:textSize="@dimen/text_title_tiny"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -39,6 +152,7 @@
                     android:layout_weight="0.7"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:layout_marginRight="@dimen/component_big"
                     android:layout_marginBottom="@dimen/component_big">
                     <com.jomhack.lendme.components.JomTextView
                         style="@style/AppTheme.TextLabelInput"
@@ -63,7 +177,6 @@
                     android:layout_weight="0.3"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginRight="@dimen/component_big"
                     android:layout_marginBottom="@dimen/component_big">
                     <com.jomhack.lendme.components.JomTextView
                         style="@style/AppTheme.TextLabelInput"
@@ -138,16 +251,14 @@
                     app:JomFont="M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/text_amount" />
+                    android:text="@string/text_postal_code" />
 
                 <com.jomhack.lendme.components.JomTextView
                     style="@style/AppTheme.TextInput"
                     app:JomFont="R"
-                    android:id="@+id/textAmount"
-                    android:hint="@string/text_hint_amount"
+                    android:id="@+id/textPostalCode"
                     android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:singleLine="true"/>
+                    android:layout_width="wrap_content"/>
             </LinearLayout>
 
             <LinearLayout
@@ -161,16 +272,14 @@
                     app:JomFont="M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/text_tenure" />
+                    android:text="@string/text_city" />
 
                 <com.jomhack.lendme.components.JomTextView
                     style="@style/AppTheme.TextInput"
                     app:JomFont="R"
-                    android:id="@+id/textTenure"
-                    android:hint="@string/text_hint_tenure"
+                    android:id="@+id/textCity"
                     android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:singleLine="true"/>
+                    android:layout_width="wrap_content"/>
             </LinearLayout>
 
             <LinearLayout
@@ -181,22 +290,57 @@
                 android:layout_marginBottom="@dimen/component_big">
                 <com.jomhack.lendme.components.JomTextView
                     style="@style/AppTheme.TextLabelInput"
-                    app:JomEdit="@id/textInterest"
                     app:JomFont="M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/text_interest" />
+                    android:text="@string/text_state" />
 
-                <com.jomhack.lendme.components.JomEditText
+                <com.jomhack.lendme.components.JomTextView
                     style="@style/AppTheme.TextInput"
                     app:JomFont="R"
-                    android:id="@+id/textInterest"
-                    android:hint="@string/text_hint_interest"
+                    android:id="@+id/textState"
                     android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:maxLength="3"
-                    android:inputType="numberDecimal"
-                    android:singleLine="true"/>
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/buttonPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/component_extra"
+                android:layout_marginBottom="@dimen/component_extra"
+                android:weightSum="2.25">
+
+                <com.jomhack.lendme.components.JomButton
+                    app:JomFont="M"
+                    android:id="@+id/rejectButton"
+                    android:stateListAnimator="@null"
+                    style="@style/AppTheme.ButtonInput.Flat"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.075"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_reject"
+                    android:textColor="@color/colorWhite"
+                    tools:targetApi="lollipop" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.10"/>
+
+                <com.jomhack.lendme.components.JomButton
+                    app:JomFont="M"
+                    android:id="@+id/acceptButton"
+                    android:stateListAnimator="@null"
+                    style="@style/AppTheme.ButtonInput.Flat.Secondary"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.075"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_accept"
+                    android:textColor="@color/colorWhite"
+                    tools:targetApi="lollipop" />
+
             </LinearLayout>
 
         </LinearLayout>

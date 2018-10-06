@@ -62,4 +62,14 @@
     <string name="text_credit_score">Score</string>
     <string name="text_hint_gender">Male/Female</string>
     <string name="text_gender">Gender</string>
+    <string name="text_detail_loaner">Loaner Information</string>
+    <string name="text_detail_loan">Loan Information</string>
+    <string name="text_postal_code">Postal Code</string>
+    <string name="text_city">City</string>
+    <string name="text_state">State</string>
+    <string name="text_mobile">Mobile</string>
+    <string name="text_reject">Reject</string>
+    <string name="text_accept">Accept</string>
+    <string name="text_invest">Investing</string>
+    <string name="text_earn">Earning</string>
 </resources>
