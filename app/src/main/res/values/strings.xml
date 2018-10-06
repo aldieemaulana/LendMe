@@ -58,4 +58,8 @@
     <string name="text_tenure">Tenure</string>
     <string name="text_hint_interest">10</string>
     <string name="text_interest">Interest (%)</string>
+    <string name="text_address">Address</string>
+    <string name="text_credit_score">Score</string>
+    <string name="text_hint_gender">Male/Female</string>
+    <string name="text_gender">Gender</string>
 </resources>

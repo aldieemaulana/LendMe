@@ -20,6 +20,8 @@ data class Audit(
     val updateDate: String?,
     @SerializedName("from_customer_id")
     val fromCustomerId: String?,
+    @SerializedName("customer")
+    val customer: User? = null,
     @SerializedName("to_customer_id")
     val toCustomerId: String?,
     @SerializedName("bankin_type")
@@ -39,6 +41,7 @@ data class Audit(
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
+            parcel.readParcelable(User::class.java.classLoader),
             parcel.readString(),
             parcel.readString(),
             parcel.readValue(Int::class.java.classLoader) as? Int,
@@ -55,6 +58,7 @@ data class Audit(
         parcel.writeString(updateBy)
         parcel.writeString(updateDate)
         parcel.writeString(fromCustomerId)
+        parcel.writeParcelable(customer, flags)
         parcel.writeString(toCustomerId)
         parcel.writeString(bankinType)
         parcel.writeValue(amount)

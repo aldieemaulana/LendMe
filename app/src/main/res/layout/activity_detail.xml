@@ -15,7 +15,11 @@
         android:layout_height="match_parent"
         android:background="@color/colorBackgroundPrimary"
         app:layout_insetEdge="top"
+        android:focusable="true"
+        android:clickable="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <requestFocus />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,28 +28,59 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:background="@drawable/input_primary_flat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="@dimen/component_big">
-                <com.jomhack.lendme.components.JomTextView
-                    style="@style/AppTheme.TextLabelInput"
-                    app:JomEdit="@id/textName"
-                    app:JomFont="M"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/text_name" />
+                android:orientation="horizontal">
 
-                <com.jomhack.lendme.components.JomEditText
-                    style="@style/AppTheme.TextInput"
-                    app:JomFont="R"
-                    android:id="@+id/textName"
-                    android:enabled="false"
-                    android:hint="@string/text_hint_name"
+
+                <LinearLayout
+                    android:background="@drawable/input_primary_flat"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.7"
                     android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:singleLine="true"/>
+                    android:orientation="vertical"
+                    android:layout_marginBottom="@dimen/component_big">
+                    <com.jomhack.lendme.components.JomTextView
+                        style="@style/AppTheme.TextLabelInput"
+                        app:JomFont="M"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_name" />
+
+                    <com.jomhack.lendme.components.JomTextView
+                        style="@style/AppTheme.TextInput"
+                        app:JomFont="R"
+                        android:id="@+id/textName"
+                        android:hint="@string/text_hint_name"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@drawable/input_primary_flat"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginRight="@dimen/component_big"
+                    android:layout_marginBottom="@dimen/component_big">
+                    <com.jomhack.lendme.components.JomTextView
+                        style="@style/AppTheme.TextLabelInput"
+                        app:JomFont="M"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_credit_score" />
+
+                    <com.jomhack.lendme.components.JomTextView
+                        style="@style/AppTheme.TextInput"
+                        app:JomFont="R"
+                        android:id="@+id/textCreditScore"
+                        android:hint="@string/text_hint_name"
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:singleLine="true"/>
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -56,17 +91,59 @@
                 android:layout_marginBottom="@dimen/component_big">
                 <com.jomhack.lendme.components.JomTextView
                     style="@style/AppTheme.TextLabelInput"
-                    app:JomEdit="@id/textAmount"
+                    app:JomFont="M"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_gender" />
+
+                <com.jomhack.lendme.components.JomTextView
+                    style="@style/AppTheme.TextInput"
+                    app:JomFont="R"
+                    android:id="@+id/textGender"
+                    android:hint="@string/text_hint_gender"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/input_primary_flat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/component_big">
+                <com.jomhack.lendme.components.JomTextView
+                    style="@style/AppTheme.TextLabelInput"
+                    app:JomFont="M"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_address" />
+
+                <com.jomhack.lendme.components.JomTextView
+                    style="@style/AppTheme.TextInput"
+                    app:JomFont="R"
+                    android:id="@+id/textAddress"
+                    android:hint="@string/text_hint_name"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/input_primary_flat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/component_big">
+                <com.jomhack.lendme.components.JomTextView
+                    style="@style/AppTheme.TextLabelInput"
                     app:JomFont="M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/text_amount" />
 
-                <com.jomhack.lendme.components.JomEditText
+                <com.jomhack.lendme.components.JomTextView
                     style="@style/AppTheme.TextInput"
                     app:JomFont="R"
                     android:id="@+id/textAmount"
-                    android:enabled="false"
                     android:hint="@string/text_hint_amount"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
@@ -81,17 +158,15 @@
                 android:layout_marginBottom="@dimen/component_big">
                 <com.jomhack.lendme.components.JomTextView
                     style="@style/AppTheme.TextLabelInput"
-                    app:JomEdit="@id/textTenure"
                     app:JomFont="M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/text_tenure" />
 
-                <com.jomhack.lendme.components.JomEditText
+                <com.jomhack.lendme.components.JomTextView
                     style="@style/AppTheme.TextInput"
                     app:JomFont="R"
                     android:id="@+id/textTenure"
-                    android:enabled="false"
                     android:hint="@string/text_hint_tenure"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
@@ -119,6 +194,8 @@
                     android:hint="@string/text_hint_interest"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
+                    android:maxLength="3"
+                    android:inputType="numberDecimal"
                     android:singleLine="true"/>
             </LinearLayout>
 
