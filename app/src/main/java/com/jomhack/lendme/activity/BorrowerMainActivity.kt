@@ -95,7 +95,7 @@ class BorrowerMainActivity : BaseActivity(), BottomNavigationView.OnNavigationIt
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_borrower)
-        initData()
+
         initView()
     }
 

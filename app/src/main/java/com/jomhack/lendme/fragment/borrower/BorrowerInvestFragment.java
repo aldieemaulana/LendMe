@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.jomhack.lendme.R;
 import com.jomhack.lendme.components.JomTextView;
+import com.jomhack.lendme.utils.PopUpUtils;
 
 /**
  * A simple {@link Fragment} subclass. Activities that contain this fragment must implement the
@@ -34,6 +35,7 @@ public class BorrowerInvestFragment extends Fragment {
 
   private OnFragmentInteractionListener mListener;
   SeekBar seekBarAmount, seekBarInterest, seekBarMonths;
+  private JomTextView tvEmi;
 
   public BorrowerInvestFragment() {
     // Required empty public constructor
@@ -72,6 +74,8 @@ public class BorrowerInvestFragment extends Fragment {
     // Inflate the layout for this fragment
     View view = inflater.inflate(R.layout.fragment_borrower_invest, container, false);
 
+    tvEmi = (JomTextView) view.findViewById(R.id.tvEmi);
+
     seekBarAmount = (SeekBar) view.findViewById(R.id.seekBarAmount);
     seekBarAmount
         .getProgressDrawable()
@@ -90,6 +94,7 @@ public class BorrowerInvestFragment extends Fragment {
           public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
 
             tvAmount.setText("RM " + String.valueOf(i));
+            calculateEmi();
           }
 
           @Override
@@ -111,6 +116,7 @@ public class BorrowerInvestFragment extends Fragment {
           @Override
           public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
             tvInterest.setText(String.valueOf(i) + " p.a");
+            calculateEmi();
           }
 
           @Override
@@ -133,6 +139,7 @@ public class BorrowerInvestFragment extends Fragment {
           @Override
           public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
             tvMonths.setText(String.valueOf(i) + " months");
+            calculateEmi();
           }
 
           @Override
@@ -149,6 +156,7 @@ public class BorrowerInvestFragment extends Fragment {
           @Override
           public void onClick(View view) {
             resetProgress();
+              PopUpUtils.showPopup(getActivity(),getString(R.string.text_sucessfully_updated));
           }
         });
 
@@ -197,15 +205,22 @@ public class BorrowerInvestFragment extends Fragment {
     seekBarAmount.setProgress(1);
     seekBarMonths.setProgress(1);
     seekBarInterest.setProgress(1);
+      tvEmi.setText("MYR " + 0);
   }
 
   public float calculateEmi() {
 
-    int principal = seekBarAmount.getProgress();
-    float interest = seekBarInterest.getProgress() / 100;
-    float years = seekBarMonths.getProgress() / 12;
+    int principal = seekBarAmount.getProgress()==0?1:seekBarAmount.getProgress();
+    float interest = (seekBarInterest.getProgress()==0? 1:seekBarInterest.getProgress());
+    float years = (seekBarMonths.getProgress()==0?1:seekBarMonths.getProgress()) ;
 
-    float total = (principal + principal * interest * years) / years * 12;
+    if(interest==0) interest=1;
+    if(years == 0) years=1;
+
+    float total = (principal + (principal * interest * years)/100*12) / years * 12;
+
+    tvEmi.setText("MYR " + total);
+
     return total;
   }
 }

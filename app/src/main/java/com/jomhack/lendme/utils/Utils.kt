@@ -3,8 +3,11 @@ package com.jomhack.lendme.utils
 import android.app.Activity
 import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
+import android.content.DialogInterface
 import android.net.ConnectivityManager
+import android.os.Build
 import android.support.design.widget.Snackbar
+import android.support.v7.app.AlertDialog
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 
@@ -47,5 +50,8 @@ open class Utils {
                     activity.currentFocus!!.windowToken, 0)
         }
     }
+
+
+
 
 }

@@ -48,4 +48,21 @@
     <string name="title_profile">Profile</string>
     <string name="title_borrow">Borrow</string>
 
+
+    <string name="text_phone_number">Phone Number</string>
+    <string name="text_hint_mobile_number">1xxx</string>
+    <string name="text_send_code">Send Code</string>
+    <string name="text_resend">Resend Code</string>
+    <string name="text_hint_tac_code">xxxx</string>
+    <string name="text_tac">TAC Code</string>
+    <string name="text_verify_code">Verify Code</string>
+    <string name="dummy_name">Aldi Maulana</string>
+    <string name="text_transaction_history">Transaction History</string>
+    <string name="text_approved">Approved</string>
+    <string name="text_sucessfully_updated">Successfully updated.</string>
+
+    <color name="colorPlus">#a8a8a8</color>
+    <color name="colorMinus">#f10d0d</color>
+
+    <string name="text_paid">Paid</string>
 </resources>

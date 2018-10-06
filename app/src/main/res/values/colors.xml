@@ -40,7 +40,11 @@
     <color name="colorBottomNavigationNormal">#252525</color>
 
     <color name="graylight">#fafafa</color>
-    <color name="startblue">#09c6df</color>
-    <color name="endtblue">#0bcce6</color>
+    <color name="startblue">@color/colorPrimary</color>
+    <color name="endtblue">@color/colorPrimary</color>
+
+    <color name="colorGreen">#b8ed12</color>
+
+
 
 </resources>
