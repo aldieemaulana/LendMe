@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:targetApi="o" >
 
     <item
         android:id="@+id/navigation_board"
         android:icon="@drawable/ic_board"
         android:iconTint="@color/colorBottomNavigationNormal"
         android:title="@string/title_board" />
-
     <item
         android:id="@+id/navigation_friends"
         android:icon="@drawable/ic_friends"
         android:iconTint="@color/colorBottomNavigationNormal"
-        android:title="@string/title_frieds" />
+        android:title="@string/title_frieds"/>
+    <item
+        android:id="@+id/navigation_invests"
+        android:icon="@drawable/ic_invests"
+        android:iconTint="@color/colorBottomNavigationNormal"
+        android:title="@string/title_invests"/>
+    <item
+        android:id="@+id/navigation_history"
+        android:icon="@drawable/ic_history"
+        android:iconTint="@color/colorBottomNavigationNormal"
+        android:title="@string/title_history"/>
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_settings"
+        android:iconTint="@color/colorBottomNavigationNormal"
+        android:title="@string/title_settings"/>
 
 </menu>

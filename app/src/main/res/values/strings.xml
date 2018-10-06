@@ -3,4 +3,7 @@
     <string name="title_main">Home</string>
     <string name="title_board">Board</string>
     <string name="title_frieds">Friends</string>
+    <string name="title_invests">Invests</string>
+    <string name="title_history">History</string>
+    <string name="title_settings">Settings</string>
 </resources>
