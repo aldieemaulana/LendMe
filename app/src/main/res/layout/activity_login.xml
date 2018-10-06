@@ -1,119 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cordinate_main"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".activity.LoginActivity">
 
-    <RelativeLayout
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <include layout="@layout/toolbar_primary" android:id="@+id/toolbarLayout"/>
 
-        <TextView
-            android:id="@+id/statusText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Signed Out"
-            android:visibility="gone" />
+        <requestFocus />
 
-        <RelativeLayout
-            android:id="@+id/phoneAuth"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="16dp"
-            android:padding="8dp">
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/toolbarLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            style="@style/AppTheme.Layout.Parent"
+            android:orientation="vertical">
 
             <LinearLayout
+                android:background="@drawable/input_primary_flat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/component_big">
+                <com.jomhack.lendme.components.JomTextView
+                    style="@style/AppTheme.TextLabelInput"
+                    app:JomEdit="@id/phoneText"
+                    app:JomFont="M"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Phone number"
-                    android:textSize="18sp" />
+                    android:text="@string/text_phone_number" />
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical">
+                    android:layout_height="wrap_content">
 
                     <com.hbb20.CountryCodePicker
                         android:id="@+id/ccp"
+                        android:background="@color/colorTransparent"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         app:ccp_defaultNameCode="my" />
 
-                    <EditText
+                    <com.jomhack.lendme.components.JomEditText
+                        android:layout_toRightOf="@id/ccp"
+                        style="@style/AppTheme.TextInput"
+                        app:JomFont="R"
                         android:id="@+id/phoneText"
-                        android:layout_width="match_parent"
+                        android:hint="@string/text_hint_mobile_number"
+                        android:layout_marginTop="7dp"
                         android:layout_height="wrap_content"
-                        android:hint="phone"
+                        android:layout_width="match_parent"
+                        android:maxLength="15"
                         android:inputType="phone"
-                        android:singleLine="true" />
-                </LinearLayout>
+                        android:singleLine="true"/>
+
+                </RelativeLayout>
             </LinearLayout>
-        </RelativeLayout>
 
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/phoneAuth"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
+            <LinearLayout
+                android:background="@drawable/input_primary_flat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/component_big">
+                <com.jomhack.lendme.components.JomTextView
+                    style="@style/AppTheme.TextLabelInput"
+                    app:JomEdit="@id/codeText"
+                    app:JomFont="M"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_tac" />
 
-            android:background="@color/colorPrimary"
-            android:text="Send Code"
-            android:textColor="#FFF" />
+                <com.jomhack.lendme.components.JomEditText
+                    android:layout_toRightOf="@id/ccp"
+                    style="@style/AppTheme.TextInput"
+                    app:JomFont="R"
+                    android:id="@+id/codeText"
+                    android:enabled="false"
+                    android:hint="@string/text_hint_tac_code"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:maxLength="8"
+                    android:inputType="phone"
+                    android:singleLine="true"/>
+            </LinearLayout>
 
-        <Button
-            android:id="@+id/resendButton"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/sendButton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="29dp"
-            android:background="@color/colorPrimary"
-            android:text="Resend Code"
-            android:textColor="#FFF" />
 
-        <EditText
-            android:id="@+id/codeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/resendButton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="47dp"
-            android:ems="10"
-            android:hint="Code"
-            android:inputType="number"
-            android:textColor="#000"
-            android:textColorHint="#000" />
+            <com.jomhack.lendme.components.JomTextView
+                app:JomFont="L"
+                android:layout_marginTop="@dimen/component_small"
+                android:layout_marginBottom="@dimen/component_small"
+                android:id="@+id/textError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorError"
+                android:textSize="@dimen/text_small"
+                android:layout_gravity="center"/>
 
-        <Button
-            android:id="@+id/verifyButton"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/codeText"
-            android:layout_alignStart="@+id/codeText"
-            android:layout_alignLeft="@+id/codeText"
-            android:layout_alignEnd="@+id/codeText"
-            android:layout_alignRight="@+id/codeText"
-            android:layout_marginTop="20dp"
-            android:background="@color/colorPrimary"
-            android:text="Verify Code"
-            android:textColor="#FFF" />
+            <com.jomhack.lendme.components.JomButton
+                app:JomFont="M"
+                android:id="@+id/sendButton"
+                android:stateListAnimator="@null"
+                android:layout_marginTop="@dimen/component_extra"
+                android:layout_marginBottom="@dimen/component_extra"
+                style="@style/AppTheme.ButtonInput.Flat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_send_code"
+                android:textColor="@color/colorWhite"
+                tools:targetApi="lollipop" />
 
-        <Button
-            android:id="@+id/signoutButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/verifyButton"
-            android:text="Sign Out"
-            android:visibility="gone" />
-    </RelativeLayout>
+            <com.jomhack.lendme.components.JomButton
+                android:visibility="gone"
+                app:JomFont="M"
+                android:id="@+id/verifyButton"
+                android:stateListAnimator="@null"
+                android:layout_marginTop="@dimen/component_extra"
+                android:layout_marginBottom="@dimen/component_extra"
+                style="@style/AppTheme.ButtonInput.Flat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/text_verify_code"
+                android:textColor="@color/colorWhite"
+                tools:targetApi="lollipop" />
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/statusText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Signed Out"
+                    android:visibility="gone" />
+
+                <com.jomhack.lendme.components.JomButton
+                    app:JomFont="M"
+                    android:id="@+id/resendButton"
+                    android:stateListAnimator="@null"
+                    android:layout_marginBottom="@dimen/component_extra"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_resend"
+                    android:textSize="@dimen/text_title_tiny"
+                    android:background="@color/colorTransparent"
+                    android:textColor="@color/colorPrimary"
+                    tools:targetApi="lollipop"/>
+
+
+                <Button
+                    android:id="@+id/signoutButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign Out"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
+
 </android.support.design.widget.CoordinatorLayout>

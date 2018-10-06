@@ -10,7 +10,6 @@ import com.jomhack.lendme.utils.Dialogs
 import com.kaopiz.kprogresshud.KProgressHUD
 import kotlinx.android.synthetic.main.toolbar_primary.*
 
-
 /**
  * Created by Al on 06/10/2018 for JomHack
  */
@@ -18,7 +17,23 @@ import kotlinx.android.synthetic.main.toolbar_primary.*
 open class BaseActivity : AppCompatActivity() {
 
     internal val context : Context = this
-    internal var progress: KProgressHUD? = null
+
+    companion object {
+        var progress: KProgressHUD? = null
+
+        fun showProgress() {
+            progress!!.show()
+        }
+
+        fun hideProgress() {
+            progress!!.dismiss()
+        }
+
+        fun initData(context : Context) {
+            progress = Dialogs().initProgressDialog(context)
+        }
+
+    }
 
     /* for auto dismiss keyboard and clear focus when touch outside */
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
@@ -35,18 +50,6 @@ open class BaseActivity : AppCompatActivity() {
             }
         }
         return super.dispatchTouchEvent(event)
-    }
-
-    internal fun showProgress() {
-        progress!!.show()
-    }
-
-    internal fun hideProgress() {
-        progress!!.dismiss()
-    }
-
-    internal fun initData() {
-        progress = Dialogs().initProgressDialog(context)
     }
 
     internal fun setTitle(title: String) {

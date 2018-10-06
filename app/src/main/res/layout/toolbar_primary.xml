@@ -27,7 +27,7 @@
             android:layout_height="wrap_content">
 
             <android.support.v7.widget.AppCompatImageButton
-                android:visibility="visible"
+                android:visibility="gone"
                 android:id="@+id/buttonBackToolbar"
                 android:layout_width="@dimen/button_toolbar"
                 android:layout_height="@dimen/button_toolbar"

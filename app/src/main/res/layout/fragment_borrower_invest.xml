@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/ll_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        android:paddingBottom="15dp">
+
+        <SeekBar
+            android:id="@+id/seekBarAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp" />
+
+        <com.jomhack.lendme.components.JomTextView
+            android:id="@+id/tvAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp" />
+
+        <SeekBar
+            android:id="@+id/seekBarInterest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/startblue" />
+
+        <com.jomhack.lendme.components.JomTextView
+            android:id="@+id/tvInterest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp" />
+
+        <SeekBar
+            android:id="@+id/seekBarMonths"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/startblue" />
+
+        <com.jomhack.lendme.components.JomTextView
+            android:id="@+id/tvMonths"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
+
+
+    <com.jomhack.lendme.components.JomTextView
+        android:id="@+id/tvEmi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/ll_seekbar" />
+
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/buttonstyle"
+        android:text="Submit"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmi"
+        app:layout_goneMarginTop="30dp" />
+
+
+</android.support.constraint.ConstraintLayout>

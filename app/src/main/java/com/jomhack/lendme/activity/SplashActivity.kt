@@ -7,7 +7,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.jomhack.lendme.App
 import com.jomhack.lendme.R
 import com.jomhack.lendme.base.BaseActivity
-import com.jomhack.lendme.constants.AppConstants
 
 /**
  * Created by Al on 06/10/2018 for JomHack
@@ -40,15 +39,9 @@ class SplashActivity : BaseActivity() {
         val fbAuth = App.getFirebaseAuth();
 
         if (fbAuth != null && fbAuth.currentUser != null && fbAuth.currentUser!!.phoneNumber != null) {
-            if(AppConstants.isBorrower){
-                val intent = Intent(this@SplashActivity, BorrowerMainActivity::class.java)
-                intent.putExtra("phone", fbAuth.currentUser!!.phoneNumber)
-                startActivity(intent);
-            }else {
-                val intent = Intent(this@SplashActivity, MainActivity::class.java)
-                intent.putExtra("phone", fbAuth.currentUser!!.phoneNumber)
-                startActivity(intent);
-            }
+            val intent = Intent(this@SplashActivity, MainActivity::class.java)
+            intent.putExtra("phone", fbAuth.currentUser!!.phoneNumber)
+            startActivity(intent);
 
         } else {
             startActivity(Intent(context, LoginActivity::class.java))

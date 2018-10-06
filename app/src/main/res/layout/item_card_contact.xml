@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="140dp"
+    android:layout_height="140dp"
+    android:layout_marginLeft="@dimen/divider_half"
+    android:layout_marginRight="@dimen/divider_half"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/parentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/AppTheme.Layout.Parent"
+        android:background="@drawable/card_primary_flat"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageFoto"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/photo_al"
+            tools:src="@tools:sample/avatars"/>
+
+        <com.jomhack.lendme.components.JomTextView
+            android:id="@+id/textName"
+            app:JomFont="R"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:layout_marginTop="@dimen/component_medium"
+            tools:text="@tools:sample/full_names"
+            android:textColor="@color/colorTextPrimaryDark"
+            android:textSize="@dimen/text_title_small"
+            android:gravity="center"/>
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

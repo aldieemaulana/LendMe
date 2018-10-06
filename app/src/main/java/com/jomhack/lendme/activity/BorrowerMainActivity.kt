@@ -1,6 +1,7 @@
 package com.jomhack.lendme.activity
 
 import android.databinding.DataBindingUtil.setContentView
+import android.net.Uri
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.Fragment
@@ -11,17 +12,22 @@ import com.jomhack.lendme.R.id.bottomNavigation
 import com.jomhack.lendme.R.id.buttonBackToolbar
 import com.jomhack.lendme.base.BaseActivity
 import com.jomhack.lendme.fragment.*
+import com.jomhack.lendme.fragment.borrower.*
 import com.jomhack.lendme.utils.Constants
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar_primary.*
 
-class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+class BorrowerMainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener,
+        BorrowerBoardFragment.OnFragmentInteractionListener,
+        BorrowerInvestFragment.OnFragmentInteractionListener,
+        BorrowerHistoryFragment.OnFragmentInteractionListener,
+        BorrowerSettingFragment.OnFragmentInteractionListener{
 
-    private val boardFragment = BoardFragment()
-    private val friendsFragment = FriendsFragment()
-    private val investsFragment = InvestsFragment()
-    private val historyFragment = HistoryFragment()
-    private val settingFragment = SettingsFragment()
+
+    private val boardFragment = BorrowerBoardFragment()
+    private val investsFragment = BorrowerInvestFragment()
+    private val historyFragment = BorrowerHistoryFragment()
+    private val settingFragment = BorrowerSettingFragment()
     private val fragmentManager = supportFragmentManager
     private var activeFragment : Fragment = boardFragment
 
@@ -31,7 +37,6 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
         fragmentManager.beginTransaction().add(R.id.frameLayout, settingFragment, Constants.FRAGMENT.SETTINGS.NAME).hide(settingFragment).commit()
         fragmentManager.beginTransaction().add(R.id.frameLayout, historyFragment, Constants.FRAGMENT.HISTORY.NAME).hide(historyFragment).commit()
         fragmentManager.beginTransaction().add(R.id.frameLayout, investsFragment, Constants.FRAGMENT.INVESTS.NAME).hide(investsFragment).commit()
-        fragmentManager.beginTransaction().add(R.id.frameLayout, friendsFragment, Constants.FRAGMENT.FRIENDS.NAME).hide(friendsFragment).commit()
         fragmentManager.beginTransaction().add(R.id.frameLayout, boardFragment, Constants.FRAGMENT.BOARD.NAME).commit()
     }
 
@@ -46,16 +51,10 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
                 return true
             }
 
-            R.id.navigation_friends -> {
-                setTitle(getString(R.string.title_frieds))
-                fragmentManager.beginTransaction().hide(activeFragment).show(friendsFragment).commit()
-                activeFragment = friendsFragment
 
-                return true
-            }
 
             R.id.navigation_invests-> {
-                setTitle(getString(R.string.title_invests))
+                setTitle(getString(R.string.title_borrow))
                 fragmentManager.beginTransaction().hide(activeFragment).show(investsFragment).commit()
                 activeFragment = investsFragment
 
@@ -95,9 +94,13 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        initData(context)
+        setContentView(R.layout.activity_main_borrower)
+        initData()
         initView()
+    }
+
+    override fun onFragmentInteraction(uri: Uri?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 }
