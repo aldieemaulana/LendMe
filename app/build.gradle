@@ -59,6 +59,7 @@ dependencies {
     implementation "com.kaopiz:kprogresshud:$kaopizkprogress_version"
 
     implementation 'com.jakewharton:butterknife:8.8.1'
+    implementation 'com.android.support:support-v4:28.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     implementation "com.android.support:support-v4:$androidsupport_version"
@@ -70,4 +71,3 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
-

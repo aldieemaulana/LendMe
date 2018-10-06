@@ -38,4 +38,7 @@
     <color name="colorListSelectedPressed">#acacac</color>
     <color name="colorWhiteSmall">#f5ffffff</color>
     <color name="colorBottomNavigationNormal">#252525</color>
+    <color name="graylight">#fafafa</color>
+    <color name="startblue">#09c6df</color>
+    <color name="endtblue">#0bcce6</color>
 </resources>

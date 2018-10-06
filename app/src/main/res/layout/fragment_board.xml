@@ -29,7 +29,7 @@
             android:scaleType="centerInside"
             android:background="@drawable/button_icon_primary"
             android:src="@drawable/ic_wallet"/>
-        
+
         <com.jomhack.lendme.components.JomTextView
             app:JomFont="R"
             android:id="@+id/label_balance_amount_total"

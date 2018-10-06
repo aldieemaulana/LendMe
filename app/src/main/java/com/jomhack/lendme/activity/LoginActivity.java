@@ -31,6 +31,7 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import com.hbb20.CountryCodePicker;
 import com.jomhack.lendme.App;
 import com.jomhack.lendme.R;
+import com.jomhack.lendme.constants.AppConstants;
 import com.jomhack.lendme.utils.AppUtils;
 
 import butterknife.BindView;
@@ -63,12 +64,12 @@ public class LoginActivity extends AppCompatActivity {
   private Context context;
   private ProgressDialog progress;
   public FirebaseAuth fbAuth;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_login);
     ButterKnife.bind(this);
-
 
     phoneText = (EditText) findViewById(R.id.phoneText);
     codeText = (EditText) findViewById(R.id.codeText);
@@ -86,12 +87,8 @@ public class LoginActivity extends AppCompatActivity {
     signoutButton.setEnabled(false);
     statusText.setText("Signed Out");
 
-
-
     context = this;
     fbAuth = App.Companion.getFirebaseAuth();
-
-
 
     progress = new ProgressDialog(this);
     progress.setMessage("Please wait...");
@@ -102,66 +99,65 @@ public class LoginActivity extends AppCompatActivity {
     codeText.setVisibility(View.INVISIBLE);
     resendButton.setVisibility(View.INVISIBLE);
 
-
     setListener();
   }
 
   private void setListener() {
 
     verifyButton.setOnClickListener(
-            new OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                AppUtils.hideSoftKeyboard((Activity) context);
-                if (AppUtils.isOnline(context)) {
-                  if (codeText != null && codeText.getText().toString().isEmpty()) {
-                    phoneText.setError(getString(R.string.text_phone_no_empty));
-                    return;
-                  }
-                  verifyCode();
-                } else AppUtils.showSnackBar(getString(R.string.text_check_internet), cordinate_main);
+        new OnClickListener() {
+          @Override
+          public void onClick(View view) {
+            AppUtils.hideSoftKeyboard((Activity) context);
+            if (AppUtils.isOnline(context)) {
+              if (codeText != null && codeText.getText().toString().isEmpty()) {
+                phoneText.setError(getString(R.string.text_phone_no_empty));
+                return;
               }
-            });
+              verifyCode();
+            } else AppUtils.showSnackBar(getString(R.string.text_check_internet), cordinate_main);
+          }
+        });
 
     sendButton.setOnClickListener(
-            new OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                AppUtils.hideSoftKeyboard((Activity) context);
-                if (AppUtils.isOnline(context)) {
-                  if (phoneText != null && phoneText.getText().toString().isEmpty()) {
-                    phoneText.setError(getString(R.string.text_phone_no_empty));
-                    return;
-                  }
-                  sendCode();
-                } else AppUtils.showSnackBar(getString(R.string.text_check_internet), cordinate_main);
+        new OnClickListener() {
+          @Override
+          public void onClick(View view) {
+            AppUtils.hideSoftKeyboard((Activity) context);
+            if (AppUtils.isOnline(context)) {
+              if (phoneText != null && phoneText.getText().toString().isEmpty()) {
+                phoneText.setError(getString(R.string.text_phone_no_empty));
+                return;
               }
-            });
+              sendCode();
+            } else AppUtils.showSnackBar(getString(R.string.text_check_internet), cordinate_main);
+          }
+        });
 
     resendButton.setOnClickListener(
-            new OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                AppUtils.hideSoftKeyboard((Activity) context);
-                if (AppUtils.isOnline(context)) {
-                  if (phoneText != null && phoneText.getText().toString().isEmpty()) {
-                    phoneText.setError(getString(R.string.text_phone_no_empty));
-                    return;
-                  }
-                  resendCode();
-                } else AppUtils.showSnackBar(getString(R.string.text_check_internet), cordinate_main);
+        new OnClickListener() {
+          @Override
+          public void onClick(View view) {
+            AppUtils.hideSoftKeyboard((Activity) context);
+            if (AppUtils.isOnline(context)) {
+              if (phoneText != null && phoneText.getText().toString().isEmpty()) {
+                phoneText.setError(getString(R.string.text_phone_no_empty));
+                return;
               }
-            });
+              resendCode();
+            } else AppUtils.showSnackBar(getString(R.string.text_check_internet), cordinate_main);
+          }
+        });
 
     signoutButton.setOnClickListener(
-            new OnClickListener() {
-              @Override
-              public void onClick(View view) {
-                AppUtils.hideSoftKeyboard((Activity) context);
-                if (AppUtils.isOnline(context)) signOut();
-                else AppUtils.showSnackBar(getString(R.string.text_check_internet), cordinate_main);
-              }
-            });
+        new OnClickListener() {
+          @Override
+          public void onClick(View view) {
+            AppUtils.hideSoftKeyboard((Activity) context);
+            if (AppUtils.isOnline(context)) signOut();
+            else AppUtils.showSnackBar(getString(R.string.text_check_internet), cordinate_main);
+          }
+        });
   }
 
   public void sendCode() {
@@ -172,58 +168,58 @@ public class LoginActivity extends AppCompatActivity {
     setUpVerificatonCallbacks();
 
     PhoneAuthProvider.getInstance()
-            .verifyPhoneNumber(
-                    number, // Phone number to verify
-                    60, // Timeout duration
-                    TimeUnit.SECONDS, // Unit of timeout
-                    this, // Activity (for callback binding)
-                    verificationCallbacks);
+        .verifyPhoneNumber(
+            number, // Phone number to verify
+            60, // Timeout duration
+            TimeUnit.SECONDS, // Unit of timeout
+            this, // Activity (for callback binding)
+            verificationCallbacks);
   }
 
   private void setUpVerificatonCallbacks() {
 
     verificationCallbacks =
-            new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+        new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
-              @Override
-              public void onVerificationCompleted(PhoneAuthCredential credential) {
-                progress.dismiss();
-                signoutButton.setEnabled(true);
-                statusText.setText("Signed In");
-                resendButton.setEnabled(false);
-                verifyButton.setEnabled(false);
-                codeText.setText("");
-                signInWithPhoneAuthCredential(credential);
-              }
+          @Override
+          public void onVerificationCompleted(PhoneAuthCredential credential) {
+            progress.dismiss();
+            signoutButton.setEnabled(true);
+            statusText.setText("Signed In");
+            resendButton.setEnabled(false);
+            verifyButton.setEnabled(false);
+            codeText.setText("");
+            signInWithPhoneAuthCredential(credential);
+          }
 
-              @Override
-              public void onVerificationFailed(FirebaseException e) {
-                progress.dismiss();
-                if (e instanceof FirebaseAuthInvalidCredentialsException) {
-                  // Invalid request
-                  Log.d(TAG, "Invalid credential: " + e.getLocalizedMessage());
-                } else if (e instanceof FirebaseTooManyRequestsException) {
-                  // SMS quota exceeded
-                  Log.d(TAG, "SMS Quota exceeded.");
-                }
-              }
+          @Override
+          public void onVerificationFailed(FirebaseException e) {
+            progress.dismiss();
+            if (e instanceof FirebaseAuthInvalidCredentialsException) {
+              // Invalid request
+              Log.d(TAG, "Invalid credential: " + e.getLocalizedMessage());
+            } else if (e instanceof FirebaseTooManyRequestsException) {
+              // SMS quota exceeded
+              Log.d(TAG, "SMS Quota exceeded.");
+            }
+          }
 
-              @Override
-              public void onCodeSent(
-                      String verificationId, PhoneAuthProvider.ForceResendingToken token) {
-                progress.dismiss();
-                phoneVerificationId = verificationId;
-                resendToken = token;
-                verifyButton.setEnabled(true);
-                sendButton.setEnabled(false);
-                resendButton.setEnabled(true);
+          @Override
+          public void onCodeSent(
+              String verificationId, PhoneAuthProvider.ForceResendingToken token) {
+            progress.dismiss();
+            phoneVerificationId = verificationId;
+            resendToken = token;
+            verifyButton.setEnabled(true);
+            sendButton.setEnabled(false);
+            resendButton.setEnabled(true);
 
-                verifyButton.setVisibility(View.VISIBLE);
-                codeText.setVisibility(View.VISIBLE);
-                sendButton.setVisibility(View.GONE);
-                resendButton.setVisibility(View.VISIBLE);
-              }
-            };
+            verifyButton.setVisibility(View.VISIBLE);
+            codeText.setVisibility(View.VISIBLE);
+            sendButton.setVisibility(View.GONE);
+            resendButton.setVisibility(View.VISIBLE);
+          }
+        };
   }
 
   public void verifyCode() {
@@ -236,34 +232,40 @@ public class LoginActivity extends AppCompatActivity {
 
   private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
     fbAuth
-            .signInWithCredential(credential)
-            .addOnCompleteListener(
-                    this,
-                    new OnCompleteListener<AuthResult>() {
-                      @Override
-                      public void onComplete(@NonNull Task<AuthResult> task) {
-                        progress.dismiss();
-                        if (task.isSuccessful()) {
-                          signoutButton.setEnabled(true);
-                          codeText.setText("");
-                          statusText.setText("Signed In");
-                          resendButton.setEnabled(false);
-                          verifyButton.setEnabled(false);
-                          FirebaseUser user = task.getResult().getUser();
-                          String phoneNumber = user.getPhoneNumber();
+        .signInWithCredential(credential)
+        .addOnCompleteListener(
+            this,
+            new OnCompleteListener<AuthResult>() {
+              @Override
+              public void onComplete(@NonNull Task<AuthResult> task) {
+                progress.dismiss();
+                if (task.isSuccessful()) {
+                  signoutButton.setEnabled(true);
+                  codeText.setText("");
+                  statusText.setText("Signed In");
+                  resendButton.setEnabled(false);
+                  verifyButton.setEnabled(false);
+                  FirebaseUser user = task.getResult().getUser();
+                  String phoneNumber = user.getPhoneNumber();
+                  if (AppConstants.isBorrower) {
+                    Intent intentBorrower =
+                        new Intent(LoginActivity.this, BorrowerMainActivity.class);
+                    intentBorrower.putExtra("phone", phoneNumber);
+                    startActivity(intentBorrower);
+                  } else {
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("phone", phoneNumber);
+                    startActivity(intent);
+                  }
+                  finish();
 
-                          Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                          intent.putExtra("phone", phoneNumber);
-                          startActivity(intent);
-                          finish();
-
-                        } else {
-                          if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                            // The verification code entered was invalid
-                          }
-                        }
-                      }
-                    });
+                } else {
+                  if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
+                    // The verification code entered was invalid
+                  }
+                }
+              }
+            });
   }
 
   public void resendCode() {
@@ -273,7 +275,7 @@ public class LoginActivity extends AppCompatActivity {
     setUpVerificatonCallbacks();
 
     PhoneAuthProvider.getInstance()
-            .verifyPhoneNumber(number, 60, TimeUnit.SECONDS, this, verificationCallbacks, resendToken);
+        .verifyPhoneNumber(number, 60, TimeUnit.SECONDS, this, verificationCallbacks, resendToken);
   }
 
   public void signOut() {
@@ -283,6 +285,5 @@ public class LoginActivity extends AppCompatActivity {
     signoutButton.setEnabled(false);
     sendButton.setEnabled(true);
     progress.dismiss();
-
   }
 }
