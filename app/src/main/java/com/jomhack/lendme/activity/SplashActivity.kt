@@ -34,7 +34,7 @@ class SplashActivity : BaseActivity() {
         else
             startActivity(Intent(context, MainActivity::class.java))*/
 
-        startActivity(Intent(context, MainActivity::class.java))
+        startActivity(Intent(context, LoginActivity::class.java))
 
         finish()
     }
