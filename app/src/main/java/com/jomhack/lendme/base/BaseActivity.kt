@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import com.jomhack.lendme.utils.Dialogs
 import com.kaopiz.kprogresshud.KProgressHUD
 
 
@@ -41,6 +42,10 @@ open class BaseActivity : AppCompatActivity() {
 
     fun hideProgress() {
         progress!!.dismiss()
+    }
+
+    fun initData() {
+        progress = Dialogs().initProgressDialog(context)
     }
 
 }
