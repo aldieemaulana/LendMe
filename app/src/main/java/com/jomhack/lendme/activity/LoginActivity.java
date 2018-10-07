@@ -219,7 +219,7 @@ public class LoginActivity extends BaseActivity {
   }
 
   private void setUpVerificatonCallbacks() {
-
+    setError("");
     verificationCallbacks =
         new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
