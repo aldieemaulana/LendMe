@@ -60,35 +60,41 @@ class DetailLoanActivity : BaseActivity() {
         acceptButton.setOnClickListener {
             val fbAuth = App.getFirebaseAuth()
 
-            Snackbar.make(
+            val snackbar = Snackbar.make(
                     container,
                     "The transaction number ${audit?.auditId} has been accepted by ${fbAuth.currentUser!!.phoneNumber}" ,
                     Snackbar.LENGTH_SHORT
-            ).show()
+            )
+
+            snackbar.show()
 
             val mHandler = Handler()
             val mRunnable = Runnable {
+                snackbar.dismiss()
                 finish()
             }
 
-            mHandler.postDelayed(mRunnable, 1500)
+            mHandler.postDelayed(mRunnable, 1750)
         }
 
         rejectButton.setOnClickListener {
             val fbAuth = App.getFirebaseAuth()
 
-            Snackbar.make(
+            val snackbar = Snackbar.make(
                     container,
                     "The transaction number ${audit?.auditId} has been rejected by ${fbAuth.currentUser!!.phoneNumber}" ,
                     Snackbar.LENGTH_SHORT
-            ).show()
+            )
+
+            snackbar.show()
 
             val mHandler = Handler()
             val mRunnable = Runnable {
+                snackbar.dismiss()
                 finish()
             }
 
-            mHandler.postDelayed(mRunnable, 1500)
+            mHandler.postDelayed(mRunnable, 1750)
         }
     }
 

@@ -72,4 +72,9 @@
     <string name="text_accept">Accept</string>
     <string name="text_invest">Investing</string>
     <string name="text_earn">Earning</string>
+    <string name="subcribed">Free Account</string>
+    <string name="text_change_plan">Change Plan</string>
+    <string name="text_log_out">Log Out</string>
+    <string name="text_subscribe">Premium Plan: \n\n- Free Insurance for your Money\n- Suggestion of Good User to Investing \n- Transaction Summary and Analytic \n- Bank Support</string>
+    <string name="text_plan_price">MYR 50/month</string>
 </resources>
