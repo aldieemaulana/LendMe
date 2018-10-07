@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/parentLayout"
+    android:background="@drawable/bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.LoginActivity">
@@ -20,17 +21,8 @@
             app:layout_constraintTop_toBottomOf="@id/toolbarLayout"
             app:layout_constraintBottom_toBottomOf="parent"
             style="@style/AppTheme.Layout.Parent"
+            android:paddingBottom="@dimen/component_extra_big"
             android:orientation="vertical">
-
-            <com.jomhack.lendme.components.JomTextView
-                app:JomEdit="@id/phoneText"
-                app:JomFont="M"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textSize="@dimen/text_title_huge"
-                android:gravity="center"
-                android:layout_marginBottom="@dimen/component_extra_big"/>
 
             <LinearLayout
                 android:background="@drawable/input_primary_flat"
