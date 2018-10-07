@@ -1,16 +1,21 @@
 package com.jomhack.lendme.fragment.borrower;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.jomhack.lendme.App;
 import com.jomhack.lendme.R;
+import com.jomhack.lendme.activity.LoginActivity;
 import com.jomhack.lendme.activity.MainActivity;
+import com.jomhack.lendme.base.BaseActivity;
 import com.jomhack.lendme.components.JomTextView;
 
 /**
@@ -33,6 +38,7 @@ public class BorrowerSettingFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private JomTextView textPhoneNo;
+    private FirebaseAuth firebaseAuthfbAuth;
 
     public BorrowerSettingFragment() {
         // Required empty public constructor
@@ -71,6 +77,16 @@ public class BorrowerSettingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_borrower_setting, container, false);
         textPhoneNo = (JomTextView)view.findViewById(R.id.textPhoneNo);
+        Button logOutButton = view.findViewById(R.id.logOutButton);
+        firebaseAuthfbAuth = App.Companion.getFirebaseAuth();
+        logOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firebaseAuthfbAuth.signOut();
+                startActivity(new Intent(getActivity(), LoginActivity.class));
+                getActivity().finish();
+            }
+        });
 
 //        textPhoneNo.setText((getActivity().getApplicationContext()).getFirebaseAuth());
         return view;

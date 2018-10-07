@@ -128,6 +128,7 @@ public class LoginActivity extends BaseActivity {
   }
 
   private void setListener() {
+    PopUpUtils.savePref(context, false);
 
     verifyButton.setOnClickListener(
         new OnClickListener() {
@@ -192,12 +193,13 @@ public class LoginActivity extends BaseActivity {
             // This puts the value (true/false) into the variable
             boolean isChecked = checkedRadioButton.isChecked();
             // If the radiobutton that has changed in check state is now checked...
-            if (isChecked && checkedId == R.id.radioLender ) {
+            if (isChecked && checkedId == R.id.radioLender) {
               AppConstants.isBorrower = false;
+              PopUpUtils.savePref(context, false);
               // Changes the textview's text to "Checked: example radiobutton text"
             } else if (isChecked && checkedId == R.id.radioBorrower) {
               AppConstants.isBorrower = true;
-              PopUpUtils.savePref(context,true);
+              PopUpUtils.savePref(context, true);
               // Changes the textview's text to "Checked: example radiobutton text"
             }
           }
@@ -298,7 +300,6 @@ public class LoginActivity extends BaseActivity {
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     intent.putExtra("phone", phoneNumber);
                     startActivity(intent);
-
                   }
                   finish();
                 } else {

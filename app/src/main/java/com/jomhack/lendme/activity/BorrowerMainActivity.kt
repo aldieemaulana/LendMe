@@ -27,7 +27,7 @@ class BorrowerMainActivity : BaseActivity(), BottomNavigationView.OnNavigationIt
     private val boardFragment = BorrowerBoardFragment()
     private val investsFragment = BorrowerInvestFragment()
     private val historyFragment = BorrowerHistoryFragment()
-    private val settingFragment = SettingsFragment()
+    private val settingFragment = BorrowerSettingFragment()
     private val fragmentManager = supportFragmentManager
     private var activeFragment : Fragment = boardFragment
 

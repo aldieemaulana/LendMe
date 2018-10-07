@@ -4,7 +4,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
+    android:paddingBottom="60dp"
     android:layout_height="match_parent">
 
 
@@ -234,7 +234,22 @@
             android:background="@drawable/buttonstyle"
             android:text="Follow Me"
             android:textColor="#fff"
-            android:visibility="invisible" />
+            android:visibility="gone" />
+
+        <com.jomhack.lendme.components.JomButton
+            app:JomFont="M"
+            android:id="@+id/logOutButton"
+            android:stateListAnimator="@null"
+            style="@style/AppTheme.ButtonInput.Flat.Secondary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/text_log_out"
+            android:textColor="@color/colorWhite"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="@dimen/activity_vertical_margin_big"
+            tools:targetApi="lollipop" />
 
     </LinearLayout>
 </ScrollView>

@@ -40,13 +40,13 @@ class SplashActivity : BaseActivity() {
             startActivity(Intent(context, MainActivity::class.java))*/
         val fbAuth = App.getFirebaseAuth();
 
-        if (fbAuth != null && fbAuth.currentUser != null && fbAuth.currentUser!!.phoneNumber != null) {
+        if (fbAuth != null && fbAuth.currZentUser != null && fbAuth.currentUser!!.phoneNumber != null) {
             if (PopUpUtils.getPref(context)) {
                 val intent = Intent(this@SplashActivity, BorrowerMainActivity::class.java)
                 intent.putExtra("phone", fbAuth.currentUser!!.phoneNumber)
                 startActivity(intent);
             } else {
-                val intent = Intent(this@SplashActivity, BorrowerMainActivity::class.java)
+                val intent = Intent(this@SplashActivity, MainActivity::class.java)
                 intent.putExtra("phone", fbAuth.currentUser!!.phoneNumber)
                 startActivity(intent);
             }
