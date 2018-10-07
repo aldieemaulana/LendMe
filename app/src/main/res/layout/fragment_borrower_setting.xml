@@ -92,7 +92,7 @@
                             android:layout_height="match_parent"
                             android:gravity="center"
                             android:paddingTop="10dp"
-                            android:text="$ 125"
+                            android:text="RM 125"
                             android:textColor="@color/startblue"
                             android:textSize="18sp"
                             android:textStyle="bold" />

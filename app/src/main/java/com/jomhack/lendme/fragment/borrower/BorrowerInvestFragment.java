@@ -82,7 +82,7 @@ public class BorrowerInvestFragment extends Fragment {
         .setColorFilter(
             new PorterDuffColorFilter(
                 getActivity().getColor(R.color.startblue), PorterDuff.Mode.SRC_IN));
-    seekBarAmount.setMin(1);
+    seekBarAmount.setMin(2000);
     seekBarAmount.setProgress(1);
     seekBarAmount.setMax(10000);
     final JomTextView tvAmount = (JomTextView) view.findViewById(R.id.tvAmount);
