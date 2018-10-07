@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 
 import com.jomhack.lendme.R;
@@ -41,5 +43,20 @@ public class PopUpUtils {
             })
         .setIcon(android.R.drawable.ic_dialog_alert)
         .show();
+  }
+
+
+  public static  void savePref(Context context,boolean isborrower){
+      SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+      SharedPreferences.Editor editor = preferences.edit();
+      editor.putBoolean("isborrower",isborrower);
+      editor.apply();
+
+  }
+
+  public static boolean getPref(Context context){
+      SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+      boolean name = preferences.getBoolean("isborrower", false);
+      return name;
   }
 }

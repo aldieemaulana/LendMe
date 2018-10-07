@@ -70,7 +70,7 @@ class BorrowerMainActivity : BaseActivity(), BottomNavigationView.OnNavigationIt
             }
 
             R.id.navigation_settings -> {
-                setTitle(getString(R.string.title_settings))
+                setTitle(getString(R.string.title_profile))
                 fragmentManager.beginTransaction().hide(activeFragment).show(settingFragment).commit()
                 activeFragment = settingFragment
 

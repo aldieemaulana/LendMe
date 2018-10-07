@@ -32,6 +32,7 @@ import com.jomhack.lendme.App;
 import com.jomhack.lendme.R;
 import com.jomhack.lendme.base.BaseActivity;
 import com.jomhack.lendme.constants.AppConstants;
+import com.jomhack.lendme.utils.PopUpUtils;
 import com.jomhack.lendme.utils.Utils;
 
 import java.util.concurrent.TimeUnit;
@@ -196,6 +197,7 @@ public class LoginActivity extends BaseActivity {
               // Changes the textview's text to "Checked: example radiobutton text"
             } else if (isChecked && checkedId == R.id.radioBorrower) {
               AppConstants.isBorrower = true;
+              PopUpUtils.savePref(context,true);
               // Changes the textview's text to "Checked: example radiobutton text"
             }
           }
@@ -288,7 +290,7 @@ public class LoginActivity extends BaseActivity {
                   FirebaseUser user = task.getResult().getUser();
                   String phoneNumber = user.getPhoneNumber();
 
-                  if (AppConstants.isBorrower) {
+                  if (PopUpUtils.getPref(context)) {
                     Intent intent = new Intent(LoginActivity.this, BorrowerMainActivity.class);
                     intent.putExtra("phone", phoneNumber);
                     startActivity(intent);
