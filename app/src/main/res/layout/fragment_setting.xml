@@ -76,7 +76,6 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         android:layout_marginBottom="@dimen/component_extra_big">
 
-
         <com.jomhack.lendme.components.JomTextView
             app:JomFont="R"
             android:layout_width="0dp"
@@ -89,7 +88,8 @@
             android:gravity="left"/>
 
         <com.jomhack.lendme.components.JomTextView
-            app:JomFont="M"
+            app:JomFont="L"
+            android:layout_marginTop="@dimen/component_small"
             android:layout_gravity="center"
             android:background="@drawable/shape_amount"
             android:layout_width="0dp"
