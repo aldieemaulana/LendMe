@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.fragment_setting.*
 
 class SettingsFragment : Fragment() {
 
-    private lateinit var mActivity : MainActivity
+    private lateinit var mActivity : BaseActivity
     private lateinit var fbAuth: FirebaseAuth
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -34,13 +34,14 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mActivity = (activity as MainActivity)
+        mActivity = (activity as BaseActivity)
 
         setUserData()
         setListener()
     }
 
     private fun setListener() {
+        BaseActivity.initData(mActivity)
         fbAuth = App.getFirebaseAuth()
 
         logOutButton.setOnClickListener {

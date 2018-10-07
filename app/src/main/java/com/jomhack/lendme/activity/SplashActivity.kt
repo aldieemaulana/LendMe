@@ -46,7 +46,7 @@ class SplashActivity : BaseActivity() {
                 intent.putExtra("phone", fbAuth.currentUser!!.phoneNumber)
                 startActivity(intent);
             } else {
-                val intent = Intent(this@SplashActivity, MainActivity::class.java)
+                val intent = Intent(this@SplashActivity, BorrowerMainActivity::class.java)
                 intent.putExtra("phone", fbAuth.currentUser!!.phoneNumber)
                 startActivity(intent);
             }
