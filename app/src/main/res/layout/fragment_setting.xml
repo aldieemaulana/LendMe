@@ -88,7 +88,7 @@
             android:gravity="left"/>
 
         <com.jomhack.lendme.components.JomTextView
-            app:JomFont="L"
+            app:JomFont="R"
             android:layout_marginTop="@dimen/component_small"
             android:layout_gravity="center"
             android:background="@drawable/shape_amount"
