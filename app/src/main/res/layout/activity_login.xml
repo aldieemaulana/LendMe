@@ -22,6 +22,16 @@
             style="@style/AppTheme.Layout.Parent"
             android:orientation="vertical">
 
+            <com.jomhack.lendme.components.JomTextView
+                app:JomEdit="@id/phoneText"
+                app:JomFont="M"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textSize="@dimen/text_title_huge"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/component_extra_big"/>
+
             <LinearLayout
                 android:background="@drawable/input_primary_flat"
                 android:layout_width="match_parent"
@@ -71,6 +81,44 @@
                 android:layout_marginBottom="@dimen/component_big">
                 <com.jomhack.lendme.components.JomTextView
                     style="@style/AppTheme.TextLabelInput"
+                    app:JomFont="M"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_type" />
+
+                <RadioGroup
+                    android:id="@+id/radioSelection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/component_small">
+
+                    <RadioButton
+                        android:id="@+id/radioLender"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/component_medium"
+                        android:checked="true"
+                        android:text="@string/radio_lender" />
+
+                    <RadioButton
+                        android:id="@+id/radioBorrower"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/radio_borrower" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/input_primary_flat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/component_big">
+                <com.jomhack.lendme.components.JomTextView
+                    style="@style/AppTheme.TextLabelInput"
                     app:JomEdit="@id/codeText"
                     app:JomFont="M"
                     android:layout_width="match_parent"
@@ -90,7 +138,6 @@
                     android:singleLine="true"/>
             </LinearLayout>
 
-
             <com.jomhack.lendme.components.JomTextView
                 app:JomFont="L"
                 android:layout_marginTop="@dimen/component_small"
@@ -102,26 +149,6 @@
                 android:textSize="@dimen/text_small"
                 android:layout_gravity="center"/>
 
-
-            <RadioGroup
-                android:id="@+id/radioSelection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <RadioButton
-                    android:id="@+id/radioLender"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/radio_lender"
-                    android:checked="true" />
-
-                <RadioButton
-                    android:id="@+id/radioBorrower"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/radio_borrower" />
-
-            </RadioGroup>
 
             <com.jomhack.lendme.components.JomButton
                 app:JomFont="M"
