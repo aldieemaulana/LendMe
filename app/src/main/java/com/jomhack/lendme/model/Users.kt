@@ -1,4 +1,6 @@
 package com.jomhack.lendme.model
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -40,5 +42,69 @@ data class User(
     val email: String?,
     @SerializedName("emergency_contact_no")
     val emergencyContactNo: String?,
-    val remark: Any?
-)
+    val remark: String? = ""
+) : Parcelable {
+    constructor(parcel: Parcel) : this(
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readValue(Int::class.java.classLoader) as? Int,
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString()) {
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(customerId)
+        parcel.writeString(insertBy)
+        parcel.writeString(insertDate)
+        parcel.writeString(updateBy)
+        parcel.writeString(updateDate)
+        parcel.writeString(firstName)
+        parcel.writeString(lastName)
+        parcel.writeString(icNo)
+        parcel.writeString(dateOfBirth)
+        parcel.writeString(gender)
+        parcel.writeValue(profileRate)
+        parcel.writeString(address1)
+        parcel.writeString(address2)
+        parcel.writeString(address3)
+        parcel.writeString(postalCode)
+        parcel.writeString(city)
+        parcel.writeString(state)
+        parcel.writeString(country)
+        parcel.writeString(mobileNo)
+        parcel.writeString(email)
+        parcel.writeString(emergencyContactNo)
+        parcel.writeString(remark)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<User> {
+        override fun createFromParcel(parcel: Parcel): User {
+            return User(parcel)
+        }
+
+        override fun newArray(size: Int): Array<User?> {
+            return arrayOfNulls(size)
+        }
+    }
+}

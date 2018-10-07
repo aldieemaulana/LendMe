@@ -1,4 +1,6 @@
 package com.jomhack.lendme.model
+import android.os.Parcel
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -18,6 +20,8 @@ data class Audit(
     val updateDate: String?,
     @SerializedName("from_customer_id")
     val fromCustomerId: String?,
+    @SerializedName("customer")
+    val customer: User? = null,
     @SerializedName("to_customer_id")
     val toCustomerId: String?,
     @SerializedName("bankin_type")
@@ -28,5 +32,53 @@ data class Audit(
     val status: String?,
     @SerializedName("number_of_month")
     val numberOfMonth: Int?,
-    val remark: Any?
-)
+    val remark: String? = ""
+) : Parcelable {
+    constructor(parcel: Parcel) : this(
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readParcelable(User::class.java.classLoader),
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readValue(Int::class.java.classLoader) as? Int,
+            parcel.readValue(Int::class.java.classLoader) as? Int,
+            parcel.readString(),
+            parcel.readValue(Int::class.java.classLoader) as? Int,
+            parcel.readString()) {
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(auditId)
+        parcel.writeString(insertBy)
+        parcel.writeString(insertDate)
+        parcel.writeString(updateBy)
+        parcel.writeString(updateDate)
+        parcel.writeString(fromCustomerId)
+        parcel.writeParcelable(customer, flags)
+        parcel.writeString(toCustomerId)
+        parcel.writeString(bankinType)
+        parcel.writeValue(amount)
+        parcel.writeValue(pointOfInterest)
+        parcel.writeString(status)
+        parcel.writeValue(numberOfMonth)
+        parcel.writeString(remark)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Audit> {
+        override fun createFromParcel(parcel: Parcel): Audit {
+            return Audit(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Audit?> {
+            return arrayOfNulls(size)
+        }
+    }
+}

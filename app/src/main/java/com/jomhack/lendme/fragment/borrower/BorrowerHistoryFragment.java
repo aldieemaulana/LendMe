@@ -175,7 +175,7 @@ public class BorrowerHistoryFragment extends Fragment {
   }
 
   private void initList(List<Audit> auditList) {
-    adapterApplication = new BorrowerApplicationListAdapter(auditList, getContext());
+    adapterApplication = new BorrowerApplicationListAdapter(auditList, getContext(),false);
 
     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
     recyclerViewApplication.setLayoutManager(layoutManager);

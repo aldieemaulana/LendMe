@@ -65,4 +65,20 @@
     <color name="colorMinus">#f10d0d</color>
 
     <string name="text_paid">Paid</string>
+    <string name="text_name">Name</string>
+    <string name="text_hint_name">John Doe</string>
+    <string name="text_amount">Amount to Loan (MYR)</string>
+    <string name="text_hint_amount">MYR xxx</string>
+    <string name="text_hint_tenure">x Month (s)</string>
+    <string name="text_tenure">Tenure</string>
+    <string name="text_hint_interest">10</string>
+    <string name="text_interest">Interest (%)</string>
+    <string name="text_address">Address</string>
+    <string name="text_credit_score">Score</string>
+    <string name="text_hint_gender">Male/Female</string>
+    <string name="text_gender">Gender</string>
+    <string name="radio_borrower">Borrower</string>
+    <string name="radio_lender">Lender</string>
+
+
 </resources>

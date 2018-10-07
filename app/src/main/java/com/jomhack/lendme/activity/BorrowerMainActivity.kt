@@ -88,6 +88,7 @@ class BorrowerMainActivity : BaseActivity(), BottomNavigationView.OnNavigationIt
     private fun initView() {
         buttonBackToolbar.visibility = View.GONE
 
+
         initFragment()
         setListener()
     }

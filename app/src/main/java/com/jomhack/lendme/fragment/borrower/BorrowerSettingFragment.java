@@ -8,7 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.jomhack.lendme.App;
 import com.jomhack.lendme.R;
+import com.jomhack.lendme.activity.MainActivity;
+import com.jomhack.lendme.components.JomTextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +32,7 @@ public class BorrowerSettingFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private JomTextView textPhoneNo;
 
     public BorrowerSettingFragment() {
         // Required empty public constructor
@@ -65,7 +69,11 @@ public class BorrowerSettingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_borrower_setting, container, false);
+        View view = inflater.inflate(R.layout.fragment_borrower_setting, container, false);
+        textPhoneNo = (JomTextView)view.findViewById(R.id.textPhoneNo);
+
+//        textPhoneNo.setText((getActivity().getApplicationContext()).getFirebaseAuth());
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
