@@ -41,6 +41,7 @@ class SettingsFragment : Fragment() {
     }
 
     private fun setListener() {
+        BaseActivity.initData(mActivity)
         fbAuth = App.getFirebaseAuth()
 
         logOutButton.setOnClickListener {
