@@ -40,15 +40,6 @@
     <string name="text_balance_amount_total">Balance Amount Total</string>
     <string name="dummy_amount">MYR 10.000,00</string>
     <string name="text_lend_money_to">Lend Money To</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="address">6, Jalan Damanlela, Bukit Damansara, 50490 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</string>
-    <string name="text_borrowed">Borrowed</string>
-    <string name="title_profile">Profile</string>
-    <string name="title_borrow">Borrow</string>
-
-
     <string name="text_phone_number">Phone Number</string>
     <string name="text_hint_mobile_number">1xxx</string>
     <string name="text_send_code">Send Code</string>
@@ -59,12 +50,6 @@
     <string name="dummy_name">Aldi Maulana</string>
     <string name="text_transaction_history">Transaction History</string>
     <string name="text_approved">Approved</string>
-    <string name="text_sucessfully_updated">Successfully updated.</string>
-
-    <color name="colorPlus">#a8a8a8</color>
-    <color name="colorMinus">#f10d0d</color>
-
-    <string name="text_paid">Paid</string>
     <string name="text_name">Name</string>
     <string name="text_hint_name">John Doe</string>
     <string name="text_amount">Amount to Loan (MYR)</string>
@@ -77,8 +62,40 @@
     <string name="text_credit_score">Score</string>
     <string name="text_hint_gender">Male/Female</string>
     <string name="text_gender">Gender</string>
+    <string name="text_detail_loaner">Loaner Information</string>
+    <string name="text_detail_loan">Loan Information</string>
+    <string name="text_postal_code">Postal Code</string>
+    <string name="text_city">City</string>
+    <string name="text_state">State</string>
+    <string name="text_mobile">Mobile</string>
+    <string name="text_reject">Reject</string>
+    <string name="text_accept">Accept</string>
+    <string name="text_invest">Investing</string>
+    <string name="text_earn">Earning</string>
+    <string name="subcribed">Free Account</string>
+    <string name="text_change_plan">Change Plan</string>
+    <string name="text_log_out">Log Out</string>
+    <string name="text_subscribe">Premium Plan: \n\n- Free Insurance for your Money\n- Suggestion of Good User to Investing \n- Transaction Summary and Analytic \n- Bank Support</string>
+    <string name="text_plan_price">MYR 50/month</string>
+
     <string name="radio_borrower">Borrower</string>
     <string name="radio_lender">Lender</string>
+
+    <string name="text_sucessfully_updated">Successfully updated.</string>
+
+
+    <string name="text_paid">Paid</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="address">6, Jalan Damanlela, Bukit Damansara, 50490 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</string>
+    <string name="text_borrowed">Borrowed</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_borrow">Borrow</string>
+
+
+
 
 
 </resources>

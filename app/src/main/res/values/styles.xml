@@ -100,6 +100,9 @@
     <style name="AppTheme.ButtonInput.Flat" parent="AppTheme.ButtonInput">
         <item name="android:background">@drawable/button_primary</item>
     </style>
+    <style name="AppTheme.ButtonInput.Flat.Secondary" parent="AppTheme.ButtonInput">
+        <item name="android:background">@drawable/button_secondary</item>
+    </style>
 
     <style name="AppTheme.WrappingInput">
         <item name="android:layout_marginBottom">@dimen/component_big</item>

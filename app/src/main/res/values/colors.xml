@@ -46,5 +46,8 @@
     <color name="colorGreen">#b8ed12</color>
 
 
+    <color name="colorPlus">#a8a8a8</color>
+    <color name="colorMinus">#f10d0d</color>
+
 
 </resources>
